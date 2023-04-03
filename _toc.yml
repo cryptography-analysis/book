@@ -1,0 +1,16 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: pages/rozdzial5.1
+- file: pages/rozdzial5.2
+- file: pages/rozdzial5.3
+- file: pages/rozdzial6.1
+- file: pages/rozdzial6.2
+- file: pages/rozdzial6.3
+- file: pages/rozdzial6.4
+- file: pages/rozdzial6.5
+- file: pages/rozdzial6.6
+
