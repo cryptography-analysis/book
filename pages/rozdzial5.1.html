@@ -171,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.3.html">Rozdzial 6.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.4.html">Rozdzial 6.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.5.html">Rozdzial 6.5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.6.html">Analiza Historyczna</a></li>
 </ul>
 
@@ -409,7 +410,7 @@ document.write(`
 <span class="n">keyLength</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;theclassicaltranspositionciphertransposestext&quot;&quot;&quot;</span>
 <span class="n">textLength</span> <span class="o">=</span> <span class="n">tL</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="n">fullRows</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">textLength</span><span class="o">/</span><span class="n">keyLength</span><span class="p">)</span>
+<span class="n">fullRows</span> <span class="o">=</span> <span class="n">textLength</span><span class="o">//</span><span class="n">keyLength</span>
 <span class="n">longCols</span> <span class="o">=</span> <span class="n">textLength</span> <span class="o">%</span> <span class="n">keyLength</span>
 <span class="n">key</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">randKey</span> <span class="o">=</span> <span class="mi">0</span>
@@ -455,16 +456,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;theclassicaltranspositionciphertransposestext&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">textLength</span> <span class="o">=</span> <span class="n">tL</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">fullRows</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">textLength</span><span class="o">/</span><span class="n">keyLength</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">longCols</span> <span class="o">=</span> <span class="n">textLength</span> <span class="o">%</span> <span class="n">keyLength</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">key</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tekst:
+ theclassicaltranspositionciphertransposestext
 
-<span class="ne">NameError</span>: name &#39;floor&#39; is not defined
+---
+Zaszyfrowany:
+ sripnthiniepxtsathsellocreatsiascapntsecsorot
+
+---
+Odszyfrowany:
+ theclassicaltranspositionciphertransposestext
+
+Działa
 </pre></div>
 </div>
 </div>
