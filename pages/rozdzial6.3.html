@@ -404,7 +404,7 @@ document.write(`
 <section id="algorytm-deszyfrujacy-przedstawiajacy-implementacje">
 <h2>2.Algorytm deszyfrujący przedstawiający implementację<a class="headerlink" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje" title="Permalink to this heading">#</a></h2>
 <p>Algorytm wspinaczkowy
-<img alt="" src="pages/zdjecia/algorytm_%C5%82amania_szyfrogramu.png" />/
+<img alt="" src="../_images/algorytm_lamania_szyfrogramu.jpg" />/
 Każda runda rozpoczynamy  od fazy wstępnej, BestRandomTr(10000), która wybiera najlepszy klucz od 10 000 losowych klawiszy.
 W fazie wstępnej, a do wspinaczki, algorytm wykorzystuje specjalistyczną metodę punktacji ICpairs, który jest oparty na Indeksie Zbieżności (patrz punkt 3. 2. 3”Musze się na tym skupić przczytać bo nie wiem o co dokładnie chodzi”), ale w przeciwieństwie do standardowego IC, nie jest obliczany na podstawie monogramów. Zamiast tego jest on obliczany  dla każdego kandydującego klucza transpozycji CandidateTr, stosujemy odwrotność tego klucza transpozycji („anuluj transpozycję”) do kod C, czyli TrInv(CandidateTr,C). Następnie dzielimy wynikową sekwencję symboli ADFGVX na pary (sąsiadujących symboli) i obliczamy ich indeks zbieżności, który jest, ICpairs(). Należy pamiętać, że jeśli klucz kandydata jest równy poprawnemu oryginalnemu kluczowi szyfrowania (CandidateTr = Ktr), każda para w sekwencji po cofnięciu transpozycji reprezentuje pojedynczy oryginalny symbol tekstowy (A-Z, 0–9) po podstawieniu. Jako (monogram) IC zwykłego tekstu P zaszyfrowane z podstawieniem monoalfabetycznym jest zawsze równe IC zwykłego tekstu, w przypadku
 poprawnego klucza transpozycji kandydata (CandidateTr = Ktr)
