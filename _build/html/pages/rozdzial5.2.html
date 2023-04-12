@@ -152,20 +152,27 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Strona główna
+                    Wstęp teoretyczny
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="rozdzial5.1.html">Rozdzial 5.1</a></li>
+
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Rozdzial 5.2</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="rozdzial5.3.html">Rozdzial 5.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.1.html">Rozdzial 6.1</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.2.html">Rozdzial 6.2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.3.html">Rozdzial 6.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.4.html">Rozdzial 6.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.5.html">Rozdzial 6.5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.6.html">Rozdzial 6.6</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.6.html">Analiza Historyczna</a></li>
 </ul>
 
     </div>
@@ -336,7 +343,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -352,6 +361,24 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Rozdzial 5.2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wczesniejsza-kryprografia">WCZEŚNIEJSZA KRYPROGRAFIA</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historia-kryptoanalizy">Historia kryptoanalizy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-paskowa">Metoda paskowa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wielokrotne-anagramowanie">Wielokrotne anagramowanie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nowoczesna-kryptologia">NOWOCZESNA KRYPTOLOGIA</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -363,19 +390,61 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rozdzial-5-2">
 <h1>Rozdzial 5.2<a class="headerlink" href="#rozdzial-5-2" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;work&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>work
-</pre></div>
-</div>
-</div>
-</div>
-<p>Tu pojawi sie opis</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="wczesniejsza-kryprografia">
+<h1>WCZEŚNIEJSZA KRYPROGRAFIA<a class="headerlink" href="#wczesniejsza-kryprografia" title="Permalink to this heading">#</a></h1>
+<p>W tym rozdziale zostanie przedstawione zostaną wcześniejsze metody kryptoanalizy kolumnowego szyfru transpozycyjnego. Pierwsze zostaną opisane metody klasyczne i manualne stosowane w pierwszej połowie XX wieku. Następnie omówione będą nowoczesne metody komputerowe, które oparte są na lokalnych technikach wyszukiwania, a także ich ograniczania.</p>
+<hr class="docutils" />
+<section id="historia-kryptoanalizy">
+<h2>Historia kryptoanalizy<a class="headerlink" href="#historia-kryptoanalizy" title="Permalink to this heading">#</a></h2>
+<p>W przeszłości zostały opracowane ręczne sposoby do kryptoanalizy kolumnowych szyfrów transpozycyjnych, w tym dla przypadków takich jak CCT oraz ICT. Najpopularniejszym sposobem jest “metoda paskowa”. Została opisana przez Fridemana, można stosować ją w CCT z krótkimi kluczami. W przypadku ICT można użyć “diagramów kapeluszowych”, aby zastosować ten proces do wszystkich możliwych pozycji początkowych i końcowych kolumn. Metody te bywają uciążliwe dla przypadków kluczy dłuższych niż 20, zwłaszcza dla ICT. Innym przykładem metody manualnej jest “wielokrotne anagramowanie”. Istnieją inne rozwiązania dla szczególnego przypadku, gdy dwa komunikaty są szyfrowane tym samym kluczem, a tekst jawny ma tę samą początkową lub końcową część. Metody te są stosowane, gdy identyczna część tekstu jest dłuższa niż kilka razy długość klucza. Najpierw kopiujemy każdy z szyfrogramów do prostokąta transpozycji. Następnie analizujemy sekwencje liter, które pojawiają się w jednej z kolumn pierwszego szyfrogramu, a także w jednej z kolumn drugiego szyfrogramu. Analizując związki między tymi kolumnami, które mają wspólne sekwencje, oraz dokładne położenie tych pasujących sekwencji, można odzyskać oryginalny klucz transpozycji. Ostatecznie istnieją rozwiązania dla szczególnych przypadków znanego początku lub końca tekstu. Na przykład, jeśli znany jest początek tekstu jawnego (a znana część tekstu jest dłuższa niż długość klucza), możliwe jest zidentyfikowanie liter, które pojawią się na początku kolumn. Poprzez dopasowanie tych liter do liter tekstu jawnego, można odzyskać klucz transpozycji. Podobną metodę można zastosować, jeśli znany jest koniec tekstu jawnego.</p>
+<hr class="docutils" />
+<section id="metoda-paskowa">
+<h3>Metoda paskowa<a class="headerlink" href="#metoda-paskowa" title="Permalink to this heading">#</a></h3>
+<p>Na początku tekst zaszyfrowany układany jest w kolumny na papierze, następnie zostaje pocięty na paski - każda kolumna w inny pasek. Potem następuje próba dopasowania do siebie pasków, tak aby tworzyły najbardziej prawdopodobne bigramy czyli pary nasępujących po sobie liter. Jednym z znanych bigramów jest Q, po którym zawsze nastąpi U. Po dopasowaniu bigramów następuje próba utworzenia trygramów, kwadragramów i tak do uzyskania pełnego klucza.</p>
+</section>
+<hr class="docutils" />
+<section id="wielokrotne-anagramowanie">
+<h3>Wielokrotne anagramowanie<a class="headerlink" href="#wielokrotne-anagramowanie" title="Permalink to this heading">#</a></h3>
+<p>Metoda ta jest wykorzystana dla szczególnego przypadku dwóch tekstów jawnych, o tej samej długości oraz zaszyfrowanych tym samym kluczem. Dla obu tekstów permutacja liter jest identyczna dla ich tekstów jawnych. Wynika z tego, że każde anagramowanie niektórych liter tekstu, które da poprawidłowy tekst jawny dla pierwszego zaszyfrowanego tekstu, da również prawidłowy tekst jawny dla drugiego tekstu.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="nowoczesna-kryptologia">
+<h1>NOWOCZESNA KRYPTOLOGIA<a class="headerlink" href="#nowoczesna-kryptologia" title="Permalink to this heading">#</a></h1>
+<p>Od lat 90. proponuje się komputerowe metody oparte na lokalnych technikach przeszukiwania do kryptoanalizy szyfru transpozycji kolumnowej. Matthews był jednym z pierwszych badaczy, którzy zastosowali algorytm genetyczny do kryptoanalizy szyfrów transpozycji kolumnowej w 1993 roku. Użył podzbioru najczęstszych bigramów i trigramów do obliczania wyniku, przypisując każdemu wagę. Dla szyfrogramu o długości |C| = 184, metoda Matthewsa pozwala na odzyskanie klucza o długości |K| = 9, co odpowiada ICT z r = 20 pełnymi wierszami i u = 4 długimi kolumnami.
+Giddy i Safavi-Naini wykorzystali symulowane wyżarzanie do kryptoanalizy szyfrów transpozycji kolumnowej w swojej pracy z 2000 roku. Użyli statystyk bigramów jako funkcji kosztu oraz losowych transformacji zwanych <em>G-Transpositions</em>, które są równoważne segmentowym przesunięciom. Ich algorytm jest w stanie odwzorować co najmniej 80% elementów klucza w następujących przypadkach CCT:</p>
+<ul class="simple">
+<li><p>|K| = 15 i |C| = 255 (r = 17)</p></li>
+<li><p>|K| = 20 i |C| = 500 (r = 25)</p></li>
+<li><p>|K| = 25 i |C| = 500 (r = 20)</p></li>
+</ul>
+<p>Clark porównuje trzy typy ataków na szyfry transpozycyjne kolumnowe:</p>
+<ol class="arabic simple">
+<li><p>algorytm genetyczny,</p></li>
+<li><p>symulowane wypalanie,</p></li>
+<li><p>tablica przeszukiwań.</p></li>
+</ol>
+<p>Do punktacji Clark używa nieco zmodyfikowanej wersji podzbioru bigramów i trigramów użytych przez Matthewa. Wszystkie trzy typy ataków korzystają z dwóch transformacji: (a) zamiany dwóch losowych elementów klucza i (b) losowych rotacji kolejnych segmentów klucza. Wyniki dla trzech metod są podobne. Aby odzyskać co najmniej 14 z 15 elementów klucza o długości |K| = 15, konieczne jest użycie tekstu jawnej o długości co najmniej |C| = 450 do 600 znaków, co odpowiada r = 30 do 40.
+Russell, Clark i Stepney łączą klasyczną metodę wielokrotnego anagramowania z algorytmem optymalizacji kolonii mrówek. Jako funkcje kosztu używają zarówno wyników bigramów, jak i dopasowań słownikowych. Dzięki tej metodzie możliwe jest pełne odzyskanie kluczy dla następujących przypadków (wszystkie to CCT):</p>
+<ul class="simple">
+<li><p>|K|=15 i |C|=300(r=20)</p></li>
+<li><p>|K|=20 i |C|=400(r=20)</p></li>
+<li><p>|K|=25 i |C|=625(r=25)</p></li>
+</ul>
+<hr class="docutils" />
+<p>Dimovski i Gligoroski stosują algorytm genetyczny, symulowane wypalanie i tablice przeszukiwań  do rozwiązywania szyfrów transpozycyjnych kolumnowych z punktacją opartą na bigramach.  Polega to na zamianie dwóch losowych elementów klucza. Wyniki są podobne dla wszystkich trzech technik, jak następuje:</p>
+<ul class="simple">
+<li><p>Dla klucza o długości |K| = 15, potrzebne jest conajmniej |C| = 800 (r = 53) liter, aby odzyskać co najmniej 12 z 15 elementów klucza.</p></li>
+<li><p>Dla klucza |K| = 30, konieczne jest co najmniej |C| = 1000 (r = 33) liter w szyfrogramie, aby odzyskać 25 z 30 elementów klucza.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Chen i Rosenthal stosują algorytm Markova Chain Monte Carlo do rozwiązywania szyfrów transpozycyjnych kolumnowych z wykorzystaniem punktacji bigramowej. Stosują transformacje składające się z (a) zamian pojedynczych elementów klucza i (b) przesuwania segmentów klucza. Ich wyniki są następujące:</p>
+<ul class="simple">
+<li><p>Aby rozwiązać klucz o długości |K| = 20, wymagane jest między |C| = 500 a 1000 znaków tekstu jawnego (r od 25 do 50).</p></li>
+<li><p>Klucze o długości |K|=30 mogą być również odzyskane (z prawdopodobieństwem sukcesu powyżej 80%) przy użyciu tekstu jawnego o długości |C|=2000 (r = 66).</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,6 +505,30 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Rozdzial 5.2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wczesniejsza-kryprografia">WCZEŚNIEJSZA KRYPROGRAFIA</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historia-kryptoanalizy">Historia kryptoanalizy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-paskowa">Metoda paskowa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wielokrotne-anagramowanie">Wielokrotne anagramowanie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nowoczesna-kryptologia">NOWOCZESNA KRYPTOLOGIA</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
