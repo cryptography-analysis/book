@@ -171,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Rozdzial 6.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.4.html">Rozdzial 6.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.5.html">Rozdzial 6.5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.6.html">Analiza Historyczna</a></li>
 </ul>
 
@@ -365,36 +366,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraz-6-4-algorytm-implementacja"><strong>6.3 oraz 6.4 algorytm implementacja</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-metod-deszyfrowania-szyfru-i-rozne-podejscie-w-czasie"><em>Opis metod deszyfrowania szyfru i różne podejście w czasie</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej">Ogólne całą metodyka opiera się na analizie statystycznej</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-dzialania">Plan działania:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#czym-jest-szyfr-adfgvx">Czym jest szyfr ADFGVX</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-d-f-g-x-v">A D F G X V</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-t-a-1-l-p">A b t a 1 l p</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-d-h-o-z-k-2">D d h o z k 2</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-g-f-v-3-n-4">F g f v 3 n 4</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-s-g-j-5-c-6">G s g j 5 c 6</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#x-7-8-9-u-x-m">X 7 8 9 u x m</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#v-r-e-w-y-0-i">V r e w y 0 i</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#o-b-i-a-d">O B I A D</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-x-x-g-a">a x x g a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-v-v-v-d">a v v v d</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-v-a-x-a">a v a x a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-g-x-d-x">f g x d x</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#v-v-v-v-v">v v v v v</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-d-i-o">A B D I O</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-x-a-x-a">g x a x a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#v-v-d-v-a">v v d v a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#x-v-a-a-a">x v a a a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-g-x-x-f">d g x x f</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">v v v v v</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie">Zastosowanie oraz złamanie</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">Algorytm deszyfrujący przedstawiający implementację</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraz-6-4">*6.3 oraz 6.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej-zalaczony-najlepszy-schemat-implementacji-deszyfracij-szyfru-adfgxv">Ogólne całą metodyka opiera się na analizie statystycznej Załączony najlepszy schemat implementacji deszyfracij szyfru ADFGXV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-dzialania">Plan działania:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie">1. Zastosowanie oraz złamanie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
 </ul>
             </nav>
         </div>
@@ -408,97 +384,25 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rozdzial-6-3">
 <h1>Rozdzial 6.3<a class="headerlink" href="#rozdzial-6-3" title="Permalink to this heading">#</a></h1>
-<section id="oraz-6-4-algorytm-implementacja">
-<h2><strong>6.3 oraz 6.4 algorytm implementacja</strong><a class="headerlink" href="#oraz-6-4-algorytm-implementacja" title="Permalink to this heading">#</a></h2>
+<section id="oraz-6-4">
+<h2>*6.3 oraz 6.4<a class="headerlink" href="#oraz-6-4" title="Permalink to this heading">#</a></h2>
 </section>
-<section id="opis-metod-deszyfrowania-szyfru-i-rozne-podejscie-w-czasie">
-<h2><em>Opis metod deszyfrowania szyfru i różne podejście w czasie</em><a class="headerlink" href="#opis-metod-deszyfrowania-szyfru-i-rozne-podejscie-w-czasie" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej">
-<h2>Ogólne całą metodyka opiera się na analizie statystycznej<a class="headerlink" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej" title="Permalink to this heading">#</a></h2>
+<section id="ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej-zalaczony-najlepszy-schemat-implementacji-deszyfracij-szyfru-adfgxv">
+<h2>Ogólne całą metodyka opiera się na analizie statystycznej Załączony najlepszy schemat implementacji deszyfracij szyfru ADFGXV<a class="headerlink" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej-zalaczony-najlepszy-schemat-implementacji-deszyfracij-szyfru-adfgxv" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="plan-dzialania">
 <h2>Plan działania:<a class="headerlink" href="#plan-dzialania" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Czym jest szyfr ADFGXV</p></li>
 <li><p>Kto go zastosował oraz kto go złamał</p></li>
 <li><p>Wyjaśnienie implementacij algorytmu deszyfracji</p></li>
 </ol>
-<section id="czym-jest-szyfr-adfgvx">
-<h3>Czym jest szyfr ADFGVX<a class="headerlink" href="#czym-jest-szyfr-adfgvx" title="Permalink to this heading">#</a></h3>
-<p>Jest to szyfr podstawieniowy polegający na podstawianiu pary znaków pod daną wiadomości którą chcemy zaszyfrować</p>
-<section id="a-d-f-g-x-v">
-<h4>A D F G X V<a class="headerlink" href="#a-d-f-g-x-v" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="a-b-t-a-1-l-p">
-<h4>A b t a 1 l p<a class="headerlink" href="#a-b-t-a-1-l-p" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="d-d-h-o-z-k-2">
-<h4>D d h o z k 2<a class="headerlink" href="#d-d-h-o-z-k-2" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="f-g-f-v-3-n-4">
-<h4>F g f v 3 n 4<a class="headerlink" href="#f-g-f-v-3-n-4" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="g-s-g-j-5-c-6">
-<h4>G s g j 5 c 6<a class="headerlink" href="#g-s-g-j-5-c-6" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="x-7-8-9-u-x-m">
-<h4>X 7 8 9 u x m<a class="headerlink" href="#x-7-8-9-u-x-m" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="v-r-e-w-y-0-i">
-<h4>V r e w y 0 i<a class="headerlink" href="#v-r-e-w-y-0-i" title="Permalink to this heading">#</a></h4>
-<p>Przykładowa tablica podstawieniowa
-Schemat działania algorytmu przedstawię na przykładzie jest to wtedy bardziej zrozumiałe dla czytelnika.
-Chcemy wysłać wiadomość “Lubie Placki”
-oraz klucz dzienny obiad podstawiając nasze litery pod talicę otrzymujemy szyfrogram
-“AXXGA AVVVD AVAXA FGXDX VV” tereaz wpisujemy wierszamy otrzymany szyfrogram pod kluczem dziennym w naszym wypadku obiad.</p>
-</section>
-<section id="o-b-i-a-d">
-<h4>O B I A D<a class="headerlink" href="#o-b-i-a-d" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="a-x-x-g-a">
-<h4>a x x g a<a class="headerlink" href="#a-x-x-g-a" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="a-v-v-v-d">
-<h4>a v v v d<a class="headerlink" href="#a-v-v-v-d" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="a-v-a-x-a">
-<h4>a v a x a<a class="headerlink" href="#a-v-a-x-a" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="f-g-x-d-x">
-<h4>f g x d x<a class="headerlink" href="#f-g-x-d-x" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="v-v-v-v-v">
-<h4>v v v v v<a class="headerlink" href="#v-v-v-v-v" title="Permalink to this heading">#</a></h4>
-<p>Umownie uzupełniano wiadomości do pełnego wiersza teraz kolumny przestawiamy zgodnie z porządkiem alfabetycznym liter do których należy dana kolumna.</p>
-</section>
-<section id="a-b-d-i-o">
-<h4>A B D I O<a class="headerlink" href="#a-b-d-i-o" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="g-x-a-x-a">
-<h4>g x a x a<a class="headerlink" href="#g-x-a-x-a" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="v-v-d-v-a">
-<h4>v v d v a<a class="headerlink" href="#v-v-d-v-a" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="x-v-a-a-a">
-<h4>x v a a a<a class="headerlink" href="#x-v-a-a-a" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="d-g-x-x-f">
-<h4>d g x x f<a class="headerlink" href="#d-g-x-x-f" title="Permalink to this heading">#</a></h4>
-</section>
-<section id="id1">
-<h4>v v v v v<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
-<p>Teraz przepisujemy nasz szyfrogram kolumnami i wysyłamy go szojusznikowi który posiada tablicę podstawieniową oraz klucz dzienny i odwraca nasz proces nasz szyfrogram który wysyłamy “GVXDV XVVGV AXDAXV XVAXV AAAFV” (małe i duże litery są bez znaczenia a sam algorytm był wysyłany bez odstępów kodem morsa odstępy mają ułatwić proces odczytu).</p>
-</section>
-</section>
 </section>
 <section id="zastosowanie-oraz-zlamanie">
-<h2>Zastosowanie oraz złamanie<a class="headerlink" href="#zastosowanie-oraz-zlamanie" title="Permalink to this heading">#</a></h2>
+<h2>1. Zastosowanie oraz złamanie<a class="headerlink" href="#zastosowanie-oraz-zlamanie" title="Permalink to this heading">#</a></h2>
 <p>Szyfr jest oczywiście Niemiecki z okresu I Wojny Światowej złamał go Francuski kryptolog porucznik Georges Painvina. Na początku Painvin zdołał jedynie ustalić, że szyfrowanie opiera się na szachownicy Polibiusza, a do szyfrowania używane są klucze dzienne. Okazało się, że niektóre z wiadomości nadawanych tego samego dnia miała identyczne początki. Jednocześnie wyodrębnił litery służące do szyfrowania (ADFGVX), a następnie sprawdził jak często występują poszczególne pary liter. Najczęstszą występującą kombinacją było DG – wywnioskował stąd, że jest to litera e, która w języku niemieckim występuje najczęściej. Na podstawie dalszej analizy statystycznej udało mu się zrekonstruować całą tablicę. Dzięki temu był w stanie łamać klucze dzienne niemieckich szyfrantów. Od 1 czerwca przechwytywane szyfrogramy zawierały dodatkową literę – V. Oznaczało to, że Niemcy zmienili szyfr – była to nowa wersja, ADFGVX. Ponownie, wykorzystując analizę statystyczną, Painvin odtworzył szachownicę służącą do szyfrowania.</p>
 </section>
 <section id="algorytm-deszyfrujacy-przedstawiajacy-implementacje">
-<h2>Algorytm deszyfrujący przedstawiający implementację<a class="headerlink" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje" title="Permalink to this heading">#</a></h2>
+<h2>2.Algorytm deszyfrujący przedstawiający implementację<a class="headerlink" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje" title="Permalink to this heading">#</a></h2>
 <p>Algorytm wspinaczkowy
 <img alt="" src="pages/zdjecia/algorytm_%C5%82amania_szyfrogramu.png" />/
 Każda runda rozpoczynamy  od fazy wstępnej, BestRandomTr(10000), która wybiera najlepszy klucz od 10 000 losowych klawiszy.
@@ -586,36 +490,11 @@ Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraz-6-4-algorytm-implementacja"><strong>6.3 oraz 6.4 algorytm implementacja</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-metod-deszyfrowania-szyfru-i-rozne-podejscie-w-czasie"><em>Opis metod deszyfrowania szyfru i różne podejście w czasie</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej">Ogólne całą metodyka opiera się na analizie statystycznej</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-dzialania">Plan działania:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#czym-jest-szyfr-adfgvx">Czym jest szyfr ADFGVX</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-d-f-g-x-v">A D F G X V</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-t-a-1-l-p">A b t a 1 l p</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-d-h-o-z-k-2">D d h o z k 2</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-g-f-v-3-n-4">F g f v 3 n 4</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-s-g-j-5-c-6">G s g j 5 c 6</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#x-7-8-9-u-x-m">X 7 8 9 u x m</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#v-r-e-w-y-0-i">V r e w y 0 i</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#o-b-i-a-d">O B I A D</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-x-x-g-a">a x x g a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-v-v-v-d">a v v v d</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-v-a-x-a">a v a x a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-g-x-d-x">f g x d x</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#v-v-v-v-v">v v v v v</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-d-i-o">A B D I O</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-x-a-x-a">g x a x a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#v-v-d-v-a">v v d v a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#x-v-a-a-a">x v a a a</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-g-x-x-f">d g x x f</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">v v v v v</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie">Zastosowanie oraz złamanie</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">Algorytm deszyfrujący przedstawiający implementację</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraz-6-4">*6.3 oraz 6.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej-zalaczony-najlepszy-schemat-implementacji-deszyfracij-szyfru-adfgxv">Ogólne całą metodyka opiera się na analizie statystycznej Załączony najlepszy schemat implementacji deszyfracij szyfru ADFGXV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-dzialania">Plan działania:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie">1. Zastosowanie oraz złamanie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
 </ul>
   </nav></div>
 
