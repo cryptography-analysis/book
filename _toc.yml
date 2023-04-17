@@ -4,10 +4,10 @@
 format: jb-book
 root: intro
 chapters:
-- file: pages/rozdzial5.1
-- file: pages/rozdzial5.2
-- file: pages/rozdzial5.3
-- file: pages/rozdzial6.1
+- file: pages/rozdzial5.10
+- file: pages/rozdzial5.20
+- file: pages/rozdzial5.30
+- file: pages/rozdzial6.10
 - file: pages/rozdzial6.20
 - file: pages/rozdzial6.21
 - file: pages/rozdzial6.22

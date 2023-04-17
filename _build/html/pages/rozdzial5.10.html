@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Rozdzial 5.2 &#8212; Psia Kryptografia</title>
+    <title>Zestawienie wcześniejszych oraz współczesnych metod kryptoanalizy &#8212; Psia Kryptografia</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/rozdzial5.2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/rozdzial5.10';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Nowy atak kryptoanalityczny z tekstu zaszyfrowanego" href="rozdzial5.3.html" />
-    <link rel="prev" title="SZYFR TRANSPOZYCYJNY KOLUMNOWY" href="rozdzial5.1.html" />
+    <link rel="next" title="SZYFR TRANSPOZYCYJNY KOLUMNOWY" href="rozdzial5.20.html" />
+    <link rel="prev" title="Wstęp teoretyczny" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,15 +157,14 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.1.html">SZYFR TRANSPOZYCYJNY KOLUMNOWY</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Zestawienie wcześniejszych oraz współczesnych metod kryptoanalizy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.20.html">SZYFR TRANSPOZYCYJNY KOLUMNOWY</a></li>
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Rozdzial 5.2</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.3.html">Nowy atak kryptoanalityczny z tekstu zaszyfrowanego</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.1.html">Rozdzial 6.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.30.html">Nowy atak kryptoanalityczny z tekstu zaszyfrowanego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.10.html">Rozdzial 6.1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.20.html">Rozdzial 6.2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.21.html">Implementacja szyfru (kod wraz z komentarzami)</a></li>
@@ -246,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/rozdzial5.2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/rozdzial5.10.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -276,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/pages/rozdzial5.2.ipynb" target="_blank"
+      <li><a href="../_sources/pages/rozdzial5.10.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -358,7 +357,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Rozdzial 5.2</h1>
+    <h1>Zestawienie wcześniejszych oraz współczesnych metod kryptoanalizy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,8 +367,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Rozdzial 5.2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wczesniejsze-metody-kryproanalizy">WCZEŚNIEJSZE METODY KRYPROANALIZY</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Zestawienie wcześniejszych oraz współczesnych metod kryptoanalizy</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historia-kryptoanalizy">Historia kryptoanalizy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-paskowa">Metoda paskowa</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wielokrotne-anagramowanie">Wielokrotne anagramowanie</a></li>
@@ -390,11 +388,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="rozdzial-5-2">
-<h1>Rozdzial 5.2<a class="headerlink" href="#rozdzial-5-2" title="Permalink to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="wczesniejsze-metody-kryproanalizy">
-<h1>WCZEŚNIEJSZE METODY KRYPROANALIZY<a class="headerlink" href="#wczesniejsze-metody-kryproanalizy" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="zestawienie-wczesniejszych-oraz-wspolczesnych-metod-kryptoanalizy">
+<h1>Zestawienie wcześniejszych oraz współczesnych metod kryptoanalizy<a class="headerlink" href="#zestawienie-wczesniejszych-oraz-wspolczesnych-metod-kryptoanalizy" title="Permalink to this heading">#</a></h1>
 <p>W tym rozdziale zostanie przedstawione zostaną wcześniejsze metody kryptoanalizy kolumnowego szyfru transpozycyjnego. Pierwsze zostaną opisane metody klasyczne i manualne stosowane w pierwszej połowie XX wieku. Następnie omówione będą nowoczesne metody komputerowe, które oparte są na lokalnych technikach wyszukiwania, a także ich ograniczania.</p>
 <hr class="docutils" />
 <section id="historia-kryptoanalizy">
@@ -481,20 +476,20 @@ Russell, Clark i Stepney łączą klasyczną metodę wielokrotnego anagramowania
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="rozdzial5.1.html"
+       href="../intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">SZYFR TRANSPOZYCYJNY KOLUMNOWY</p>
+        <p class="prev-next-title">Wstęp teoretyczny</p>
       </div>
     </a>
     <a class="right-next"
-       href="rozdzial5.3.html"
+       href="rozdzial5.20.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Nowy atak kryptoanalityczny z tekstu zaszyfrowanego</p>
+        <p class="prev-next-title">SZYFR TRANSPOZYCYJNY KOLUMNOWY</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -516,8 +511,7 @@ Russell, Clark i Stepney łączą klasyczną metodę wielokrotnego anagramowania
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Rozdzial 5.2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wczesniejsze-metody-kryproanalizy">WCZEŚNIEJSZE METODY KRYPROANALIZY</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Zestawienie wcześniejszych oraz współczesnych metod kryptoanalizy</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historia-kryptoanalizy">Historia kryptoanalizy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-paskowa">Metoda paskowa</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wielokrotne-anagramowanie">Wielokrotne anagramowanie</a></li>
