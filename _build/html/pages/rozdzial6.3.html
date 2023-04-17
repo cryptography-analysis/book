@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Rozdzial 6.3 &#8212; Psia Kryptografia</title>
+    <title>Rozdzial 6.3 oraz 6.4 &#8212; Psia Kryptografia</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/rozdzial6.3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Rozdzial 6.4" href="rozdzial6.4.html" />
+    <link rel="next" title="Rozdzial 6.5" href="rozdzial6.5.html" />
     <link rel="prev" title="Rozdzial 6.2" href="rozdzial6.2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -157,7 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.1.html">Rozdzial 5.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.1.html">SZYFR TRANSPOZYCYJNY KOLUMNOWY</a></li>
 
 
 
@@ -168,8 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.1.html">Rozdzial 6.1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.2.html">Rozdzial 6.2</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Rozdzial 6.3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.4.html">Rozdzial 6.4</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Rozdzial 6.3 oraz 6.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.5.html">Rozdzial 6.5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.6.html">Analiza Historyczna</a></li>
@@ -356,7 +355,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Rozdzial 6.3</h1>
+    <h1>Rozdzial 6.3 oraz 6.4</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -366,7 +365,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraz-6-4">*6.3 oraz 6.4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej-zalaczony-najlepszy-schemat-implementacji-deszyfracij-szyfru-adfgxv">Ogólne całą metodyka opiera się na analizie statystycznej Załączony najlepszy schemat implementacji deszyfracij szyfru ADFGXV</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-dzialania">Plan działania:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie">1. Zastosowanie oraz złamanie</a></li>
@@ -382,11 +380,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="rozdzial-6-3">
-<h1>Rozdzial 6.3<a class="headerlink" href="#rozdzial-6-3" title="Permalink to this heading">#</a></h1>
-<section id="oraz-6-4">
-<h2>*6.3 oraz 6.4<a class="headerlink" href="#oraz-6-4" title="Permalink to this heading">#</a></h2>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="rozdzial-6-3-oraz-6-4">
+<h1>Rozdzial 6.3 oraz 6.4<a class="headerlink" href="#rozdzial-6-3-oraz-6-4" title="Permalink to this heading">#</a></h1>
 <section id="ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej-zalaczony-najlepszy-schemat-implementacji-deszyfracij-szyfru-adfgxv">
 <h2>Ogólne całą metodyka opiera się na analizie statystycznej Załączony najlepszy schemat implementacji deszyfracij szyfru ADFGXV<a class="headerlink" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej-zalaczony-najlepszy-schemat-implementacji-deszyfracij-szyfru-adfgxv" title="Permalink to this heading">#</a></h2>
 </section>
@@ -464,11 +459,11 @@ Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment.
       </div>
     </a>
     <a class="right-next"
-       href="rozdzial6.4.html"
+       href="rozdzial6.5.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Rozdzial 6.4</p>
+        <p class="prev-next-title">Rozdzial 6.5</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -490,7 +485,6 @@ Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraz-6-4">*6.3 oraz 6.4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolne-cala-metodyka-opiera-sie-na-analizie-statystycznej-zalaczony-najlepszy-schemat-implementacji-deszyfracij-szyfru-adfgxv">Ogólne całą metodyka opiera się na analizie statystycznej Załączony najlepszy schemat implementacji deszyfracij szyfru ADFGXV</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-dzialania">Plan działania:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie">1. Zastosowanie oraz złamanie</a></li>
