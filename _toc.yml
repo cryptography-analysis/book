@@ -7,6 +7,11 @@ chapters:
 - file: pages/rozdzial5.10
 - file: pages/rozdzial5.20
 - file: pages/rozdzial5.30
+- file: pages/rozdzial5.41
+- file: pages/rozdzial5.42
+- file: pages/rozdzial5.43
+- file: pages/rozdzial5.44
+- file: pages/rozdzial5.45
 - file: pages/rozdzial6.10
 - file: pages/rozdzial6.20
 - file: pages/rozdzial6.21
@@ -14,7 +19,7 @@ chapters:
 - file: pages/rozdzial6.23
 - file: pages/rozdzial6.30
 - file: pages/rozdzial6.31
-- file: pages/rozdzial6.40
+# - file: pages/rozdzial6.40
 - file: pages/rozdzial6.50
 - file: pages/rozdzial6.60
 
