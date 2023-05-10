@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Rozdzial 6.3 oraz 6.4 &#8212; Psia Kryptografia</title>
+    <title>1. Zastosowanie oraz złamanie szyfru ADFGXV &#8212; Psia Kryptografia</title>
   
   
   
@@ -61,9 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Historia złamania szyfru ADFGXV oraz algorytm ataku ';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/rozdzial6.25';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Odczytywanie wiadomości ADFGVX z Frontu Wschodniego" href="rozdzial6.50.html" />
+    <link rel="prev" title="Implementacja w języku python" href="rozdzial6.24.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="rozdzial5.10.html">Zestawienie wcześniejszych oraz współczesnych metod kryptoanalizy</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial5.20.html">SZYFR TRANSPOZYCYJNY KOLUMNOWY</a></li>
@@ -162,16 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial5.30.html">Algorytm wspinaczowy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Szyfr Kolumnowy (podrozdzial roboczy 1 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfr Kolumnowy (podrozdzial roboczy 2 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Szyfr Kolumnowy (podrozdzial roboczy 3 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.44.html">Szyfr Kolumnowy (podrozdzial roboczy 4 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr Kolumnowy (podrozdzial roboczy 5 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Tekst do zaszyfrowania</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfrogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Kryptoanaliza Kolumnowego Szyfru Transpozycyjnego - Algorytm Wspinaczkowy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr łamiący</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.10.html">ADFGVX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.20.html">Szyfrowanie i deszyfrowanie ADFGVX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.21.html">Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.21.html">Implementacja szyfru (kod wraz z komentarzami)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.22.html">Plik z tekstem do zaszyfrowania oraz szyfrogram (podrozdzial roboczy)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.23.html">Wyniki działania zaimplementowanego szyfru z szyfrogramem (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.24.html">Implementacja w języku python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.50.html">Odczytywanie wiadomości ADFGVX z Frontu Wschodniego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.60.html">Analiza Historyczna</a></li>
 </ul>
@@ -245,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cryptography-analysis/book/issues/new?title=Issue%20on%20page%20%2Fpages/Historia złamania szyfru ADFGXV oraz algorytm ataku .html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/cryptography-analysis/book/issues/new?title=Issue%20on%20page%20%2Fpages/rozdzial6.25.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -275,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/pages/Historia złamania szyfru ADFGXV oraz algorytm ataku .ipynb" target="_blank"
+      <li><a href="../_sources/pages/rozdzial6.25.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -357,7 +361,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Rozdzial 6.3 oraz 6.4</h1>
+    <h1>1. Zastosowanie oraz złamanie szyfru ADFGXV</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,9 +371,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -380,14 +385,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="rozdzial-6-3-oraz-6-4">
-<h1>Rozdzial 6.3 oraz 6.4<a class="headerlink" href="#rozdzial-6-3-oraz-6-4" title="Permalink to this heading">#</a></h1>
-<section id="zastosowanie-oraz-zlamanie-szyfru-adfgxv">
-<h2>1. Zastosowanie oraz złamanie szyfru ADFGXV<a class="headerlink" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv" title="Permalink to this heading">#</a></h2>
+  <section id="zastosowanie-oraz-zlamanie-szyfru-adfgxv">
+<h1>1. Zastosowanie oraz złamanie szyfru ADFGXV<a class="headerlink" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv" title="Permalink to this heading">#</a></h1>
 <p>Szyfr jest oczywiście Niemiecki z okresu I Wojny Światowej złamał go Francuski kryptolog porucznik Georges Painvina. Na początku Painvin zdołał jedynie ustalić, że szyfrowanie opiera się na szachownicy Polibiusza, a do szyfrowania używane są klucze dzienne. Okazało się, że niektóre z wiadomości nadawanych tego samego dnia miała identyczne początki. Jednocześnie wyodrębnił litery służące do szyfrowania (ADFGVX), a następnie sprawdził jak często występują poszczególne pary liter. Najczęstszą występującą kombinacją było DG – wywnioskował stąd, że jest to litera e, która w języku niemieckim występuje najczęściej. Na podstawie dalszej analizy statystycznej udało mu się zrekonstruować całą tablicę. Dzięki temu był w stanie łamać klucze dzienne niemieckich szyfrantów. Od 1 czerwca przechwytywane szyfrogramy zawierały dodatkową literę – V. Oznaczało to, że Niemcy zmienili szyfr – była to nowa wersja, ADFGVX. Ponownie, wykorzystując analizę statystyczną, Painvin odtworzył szachownicę służącą do szyfrowania.</p>
 </section>
 <section id="algorytm-deszyfrujacy-przedstawiajacy-implementacje">
-<h2>2.Algorytm deszyfrujący przedstawiający implementację<a class="headerlink" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje" title="Permalink to this heading">#</a></h2>
+<h1>2.Algorytm deszyfrujący przedstawiający implementację<a class="headerlink" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje" title="Permalink to this heading">#</a></h1>
 <p>Algorytm wspinaczkowy
 <img alt="" src="../_images/algorytm_lamania_szyfrogramu.jpg" />/
 Każda runda rozpoczynamy  od fazy wstępnej, BestRandomTr(10000), która wybiera najlepszy klucz od 10 000 losowych klawiszy.
@@ -421,7 +424,6 @@ ICpairs, który pozwala na odzyskanie klucza transpozycji z pominięciem podstaw
 zrekonstruowane, ale względna kolejność par jest błędna. Ze względu na charakter transpozycji kolumnowej, jeśli zastosujemy odwrotność CandidateTr, czyli TrInv(CandidateTr,C), otrzymamy sekwencję symboli ADFGVX, w której dwa elementy każdej z oryginalnych par ADFGVX (po podstawieniu, ale przed transpozycją), są teraz obok siebie. W rezultacie ICpairs(TrInv(CandidateTr,C)) = IC(P), chociaż KandydatTr!(różni się od Ktr) = Ktr. Innymi słowy, mamy fałszywie wysokie ICpairs. W wyniku tego zjawiska nie możemy polegać tylko na ICpairs jako funkcji scoringowej, aby odzyskać klucz transpozycji o równej długości. Gdy długość klucza jest nieparzysta, zjawisko to nie występuje. Aby poradzić sobie z literami transpozycji o równej długości, dostosowaliśmy funkcję scoringową, tak aby łączny poprzedni pomiar (ICpairs) z IC czworokątów (ICquads). Dzielimy na sekwencje TrInv(CandidateTr,C)(otrzymamy po cofnięciu transpozycji) do czworokątów dla Symboli ADFGVX obliczyć ich IC. Zauważ, że jeśli klucz kandydata jest poprawny, to jest CandidateTr = Ktr, każda czwórka symboli ADFGVX (po cofnięciu transpozycji) reprezentuje zatem bigram symboli tekstowych (przed zastąpieniem). Po zmodyfikowaniu algorytmu za pomocą tej ulepszonej metody punktacji, algorytm wykonał również dobrze transpozycję otrzymaliśmy klucze o równej długości.
 Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment. Podzieląc kryptogramy na grupy według kluczy, którymi były zaszyfrowane, uruchomiliśmy algorytm na pierwszych n kryptogramów każdej grupy, zaczynając od n = 10, i redukując n za każym razem, aż algorytm nie odzyska klucza. Zamiast wybierać najdłuższy lub najczystsze kryptogramy z każdej grupy, właśnie wybraliśmy pierwsze n kryptogramów z każdej grupy.Dlatego n kryptogramów wybranych z każdej grupy (klucza) może się różnić pod względem długości lub liczba błędów transkrypcji. W tabeli 6. 1 pokazujemy minimalną liczbę n kryptogramów wymagane przez algorytm, aby umożliwić pełne odzyskanie klucza. Widać, że na 6 klawiszy z 14, tylko 2 kryptogramy o łącznej liczbie 388 do 566 symboli ADFGVX były wystarczające do odzyskania klucze transpozycji o długości od 16 do 23. Najgorszy przypadek był z kluczem długości 18 co wymagało 5 komunikatów o łącznej liczbie 1000 symboli ADFGVX.</p>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -454,6 +456,24 @@ Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment.
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="rozdzial6.24.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Implementacja w języku python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rozdzial6.50.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Odczytywanie wiadomości ADFGVX z Frontu Wschodniego</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -472,9 +492,10 @@ Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>

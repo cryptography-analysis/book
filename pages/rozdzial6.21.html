@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy) &#8212; Psia Kryptografia</title>
+    <title>Implementacja szyfru (kod wraz z komentarzami) &#8212; Psia Kryptografia</title>
   
   
   
@@ -164,16 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial5.30.html">Algorytm wspinaczowy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Szyfr Kolumnowy (podrozdzial roboczy 1 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfr Kolumnowy (podrozdzial roboczy 2 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Szyfr Kolumnowy (podrozdzial roboczy 3 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.44.html">Szyfr Kolumnowy (podrozdzial roboczy 4 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr Kolumnowy (podrozdzial roboczy 5 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Tekst do zaszyfrowania</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfrogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Kryptoanaliza Kolumnowego Szyfru Transpozycyjnego - Algorytm Wspinaczkowy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr łamiący</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.10.html">ADFGVX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.20.html">Szyfrowanie i deszyfrowanie ADFGVX</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementacja szyfru (kod wraz z komentarzami)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.22.html">Plik z tekstem do zaszyfrowania oraz szyfrogram (podrozdzial roboczy)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.23.html">Wyniki działania zaimplementowanego szyfru z szyfrogramem (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.24.html">Implementacja w języku python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.25.html">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.50.html">Odczytywanie wiadomości ADFGVX z Frontu Wschodniego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.60.html">Analiza Historyczna</a></li>
 </ul>
@@ -359,7 +361,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)</h1>
+    <h1>Implementacja szyfru (kod wraz z komentarzami)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -369,9 +371,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-py">Driver.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encode-py">Encode.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-py">Decode.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-py">Driver.py</a></li>
 </ul>
             </nav>
         </div>
@@ -383,93 +385,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="implementacja-szyfru-kod-wraz-z-komentarzami-podrozdzial-roboczy">
-<h1>Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)<a class="headerlink" href="#implementacja-szyfru-kod-wraz-z-komentarzami-podrozdzial-roboczy" title="Permalink to this heading">#</a></h1>
-<p>Poniżej zostanie przedstawiona implementacja szyfru ADFGVX wraz z komentarzami. Jest on zaimplementowany w języku python 3 w trzech plikach. Pierwszy plik <a class="reference external" href="http://Device.py">Device.py</a> zawiera main. Drugi plik <a class="reference external" href="http://Encode.py">Encode.py</a> przedstawia sposób szyfrowania, natomiast w pliku <a class="reference external" href="http://Decode.py">Decode.py</a> przedstawiony jest sposób dekodowania.</p>
-<section id="driver-py">
-<h2><a class="reference external" href="http://Driver.py">Driver.py</a><a class="headerlink" href="#driver-py" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Encode</span> <span class="kn">import</span> <span class="n">Encode</span>
-<span class="kn">from</span> <span class="nn">Decode</span> <span class="kn">import</span> <span class="n">Decode</span>
-
-<span class="n">enc</span> <span class="o">=</span> <span class="n">Encode</span><span class="p">()</span>
-<span class="n">dec</span> <span class="o">=</span> <span class="n">Decode</span><span class="p">()</span>
-
-<span class="n">choice</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="n">originalMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="n">firstCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="n">cipherKey</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="n">cipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="n">finalCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="n">decodedMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-
-<span class="k">while</span> <span class="n">choice</span> <span class="o">!=</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wybierz jedna z opcji: &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Podaj wiadomosc do zakodowania &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Podaj klucz do ostatecznego zaszyfrowania wiadomosci &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Podaj zaszyforwana wiadomosc do zdeszyfrowania &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Wyjscie &quot;</span><span class="p">)</span>
-    
-    <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wybór: &quot;</span><span class="p">)</span>
-    
-    <span class="k">if</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">):</span>
-        <span class="c1">#while not 0 &lt; len(originalMsg) &lt;= 80:</span>
-        <span class="c1">#    originalMsg = input(&quot;Wpisz wiadomosc do zakodowania &quot;)</span>
-        <span class="n">msg_file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj ścieżkę do pliku z wiadomością do zakodowania: &quot;</span><span class="p">)</span>
-        <span class="c1"># otwarcie do odczytu pliku z tekstem do zaszyfrowania </span>
-        <span class="n">msg_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">msg_file_name</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-        <span class="c1"># originMsg - wiadomosc z pliku do zaszyfrowania </span>
-        <span class="n">originalMsg</span> <span class="o">=</span> <span class="n">msg_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="c1">#print(&quot;\nzawartość pliku:\n&quot;,originalMsg)</span>
-        <span class="c1"># firstCipher - tekst po pierszej czesci</span>
-        <span class="n">firstCipher</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">genCipher</span><span class="p">(</span><span class="n">originalMsg</span><span class="p">)</span>
-        <span class="c1">#print(&quot;\nPierwszy szyfrogram: &quot; + firstCipher)</span>
-        
-    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Długość pierwszego szyfrogramu:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getFirstCipher</span><span class="p">()))</span>
-        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getFirstCipher</span><span class="p">())</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">cipherKey</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj klucz transpozycji (Dzielnik długości pierwszego szyfrogramu): &quot;</span><span class="p">)</span>
-        <span class="c1"># cipher - ostateczny zaszyfrowany tekst</span>
-        <span class="n">cipher</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">genKey</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span>
-        <span class="n">ciph_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;szyfrogram.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
-        <span class="n">ciph_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
-        <span class="n">ciph_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="c1">#print(&quot;\nOstateczny szyfrogram: &quot; + cipher)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Szyfrogram zapisany został w pliku szyfrogram.txt&quot;</span><span class="p">)</span>
-
-    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">):</span>
-        <span class="c1"># finalCipher - zaszyfrowany tekst to zdeszyforwania</span>
-        <span class="n">to_dec_file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj ścieżkę do pliku z szyfrogramem: &quot;</span><span class="p">)</span>
-        <span class="n">to_dec_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_dec_file_name</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> 
-        <span class="n">finalCipher</span> <span class="o">=</span> <span class="n">to_dec_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="c1"># decodeMsg - zdeszyfrowany tekst</span>
-        <span class="n">decodedMsg</span> <span class="o">=</span> <span class="n">dec</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getGrid</span><span class="p">(),</span> <span class="n">enc</span><span class="o">.</span><span class="n">getKey</span><span class="p">(),</span> <span class="n">finalCipher</span><span class="p">)</span>
-        <span class="c1">#print(&quot;\nWiadomosc jawna: &quot; + decodedMsg)</span>
-        <span class="n">dec_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zdekodowany.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
-        <span class="n">dec_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">decodedMsg</span><span class="p">)</span>
-        <span class="n">dec_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wiadomość jawna została zapisana w pliku zdekodowany.txt&quot;</span><span class="p">)</span>
-            
-    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">):</span>
-        <span class="n">quit</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">Encode</span> <span class="kn">import</span> <span class="n">Encode</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">Decode</span> <span class="kn">import</span> <span class="n">Decode</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">enc</span> <span class="o">=</span> <span class="n">Encode</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;Encode&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="implementacja-szyfru-kod-wraz-z-komentarzami">
+<h1>Implementacja szyfru (kod wraz z komentarzami)<a class="headerlink" href="#implementacja-szyfru-kod-wraz-z-komentarzami" title="Permalink to this heading">#</a></h1>
+<p>Poniżej zostanie przedstawiona implementacja szyfru ADFGVX wraz z komentarzami. Jest on zaimplementowany w języku python 3 w trzech plikach. Pierwszy plik <a class="reference external" href="http://Encode.py">Encode.py</a> przedstawia sposób szyfrowania, w pliku <a class="reference external" href="http://Decode.py">Decode.py</a> przedstawiony jest sposób dekodowania a trzeci plik <a class="reference external" href="http://Driver.py">Driver.py</a> zawiera main.</p>
 <section id="encode-py">
 <h2><a class="reference external" href="http://Encode.py">Encode.py</a><a class="headerlink" href="#encode-py" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -694,6 +612,90 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="driver-py">
+<h2><a class="reference external" href="http://Driver.py">Driver.py</a><a class="headerlink" href="#driver-py" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Encode</span> <span class="kn">import</span> <span class="n">Encode</span>
+<span class="kn">from</span> <span class="nn">Decode</span> <span class="kn">import</span> <span class="n">Decode</span>
+
+<span class="n">enc</span> <span class="o">=</span> <span class="n">Encode</span><span class="p">()</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="n">Decode</span><span class="p">()</span>
+
+<span class="n">choice</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">originalMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">firstCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">cipherKey</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">cipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">finalCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">decodedMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="k">while</span> <span class="n">choice</span> <span class="o">!=</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wybierz jedna z opcji: &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Podaj wiadomosc do zakodowania &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Podaj klucz do ostatecznego zaszyfrowania wiadomosci &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Podaj zaszyforwana wiadomosc do zdeszyfrowania &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Wyjscie &quot;</span><span class="p">)</span>
+    
+    <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wybór: &quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">):</span>
+        <span class="c1">#while not 0 &lt; len(originalMsg) &lt;= 80:</span>
+        <span class="c1">#    originalMsg = input(&quot;Wpisz wiadomosc do zakodowania &quot;)</span>
+        <span class="n">msg_file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj ścieżkę do pliku z wiadomością do zakodowania: &quot;</span><span class="p">)</span>
+        <span class="c1"># otwarcie do odczytu pliku z tekstem do zaszyfrowania </span>
+        <span class="n">msg_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">msg_file_name</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="c1"># originMsg - wiadomosc z pliku do zaszyfrowania </span>
+        <span class="n">originalMsg</span> <span class="o">=</span> <span class="n">msg_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="c1">#print(&quot;\nzawartość pliku:\n&quot;,originalMsg)</span>
+        <span class="c1"># firstCipher - tekst po pierszej czesci</span>
+        <span class="n">firstCipher</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">genCipher</span><span class="p">(</span><span class="n">originalMsg</span><span class="p">)</span>
+        <span class="c1">#print(&quot;\nPierwszy szyfrogram: &quot; + firstCipher)</span>
+        
+    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Długość pierwszego szyfrogramu:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getFirstCipher</span><span class="p">()))</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getFirstCipher</span><span class="p">())</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">cipherKey</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj klucz transpozycji (Dzielnik długości pierwszego szyfrogramu): &quot;</span><span class="p">)</span>
+        <span class="c1"># cipher - ostateczny zaszyfrowany tekst</span>
+        <span class="n">cipher</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">genKey</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span>
+        <span class="n">ciph_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;szyfrogram.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">ciph_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
+        <span class="n">ciph_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c1">#print(&quot;\nOstateczny szyfrogram: &quot; + cipher)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Szyfrogram zapisany został w pliku szyfrogram.txt&quot;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">):</span>
+        <span class="c1"># finalCipher - zaszyfrowany tekst to zdeszyforwania</span>
+        <span class="n">to_dec_file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj ścieżkę do pliku z szyfrogramem: &quot;</span><span class="p">)</span>
+        <span class="n">to_dec_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_dec_file_name</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> 
+        <span class="n">finalCipher</span> <span class="o">=</span> <span class="n">to_dec_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="c1"># decodeMsg - zdeszyfrowany tekst</span>
+        <span class="n">decodedMsg</span> <span class="o">=</span> <span class="n">dec</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getGrid</span><span class="p">(),</span> <span class="n">enc</span><span class="o">.</span><span class="n">getKey</span><span class="p">(),</span> <span class="n">finalCipher</span><span class="p">)</span>
+        <span class="c1">#print(&quot;\nWiadomosc jawna: &quot; + decodedMsg)</span>
+        <span class="n">dec_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zdekodowany.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">dec_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">decodedMsg</span><span class="p">)</span>
+        <span class="n">dec_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wiadomość jawna została zapisana w pliku zdekodowany.txt&quot;</span><span class="p">)</span>
+            
+    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">):</span>
+        <span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">Encode</span> <span class="kn">import</span> <span class="n">Encode</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">Decode</span> <span class="kn">import</span> <span class="n">Decode</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">enc</span> <span class="o">=</span> <span class="n">Encode</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;Encode&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -763,9 +765,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-py">Driver.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encode-py">Encode.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-py">Decode.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-py">Driver.py</a></li>
 </ul>
   </nav></div>
 
