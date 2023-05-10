@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Rozdzial 6.3 oraz 6.4 &#8212; Psia Kryptografia</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Historia złamania szyfru ADFGXV oraz algorytm ataku ';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Wstęp teoretyczny
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.10.html">Zestawienie wcześniejszych oraz współczesnych metod kryptoanalizy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.20.html">SZYFR TRANSPOZYCYJNY KOLUMNOWY</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.30.html">Algorytm wspinaczowy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Szyfr Kolumnowy (podrozdzial roboczy 1 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfr Kolumnowy (podrozdzial roboczy 2 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Szyfr Kolumnowy (podrozdzial roboczy 3 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.44.html">Szyfr Kolumnowy (podrozdzial roboczy 4 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr Kolumnowy (podrozdzial roboczy 5 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.10.html">ADFGVX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.20.html">Szyfrowanie i deszyfrowanie ADFGVX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.21.html">Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.22.html">Plik z tekstem do zaszyfrowania oraz szyfrogram (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.23.html">Wyniki działania zaimplementowanego szyfru z szyfrogramem (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.50.html">Odczytywanie wiadomości ADFGVX z Frontu Wschodniego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.60.html">Analiza Historyczna</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cryptography-analysis/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cryptography-analysis/book/issues/new?title=Issue%20on%20page%20%2Fpages/Historia złamania szyfru ADFGXV oraz algorytm ataku .html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pages/Historia złamania szyfru ADFGXV oraz algorytm ataku .ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Rozdzial 6.3 oraz 6.4</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="rozdzial-6-3-oraz-6-4">
+<h1>Rozdzial 6.3 oraz 6.4<a class="headerlink" href="#rozdzial-6-3-oraz-6-4" title="Permalink to this heading">#</a></h1>
+<section id="zastosowanie-oraz-zlamanie-szyfru-adfgxv">
+<h2>1. Zastosowanie oraz złamanie szyfru ADFGXV<a class="headerlink" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv" title="Permalink to this heading">#</a></h2>
+<p>Szyfr jest oczywiście Niemiecki z okresu I Wojny Światowej złamał go Francuski kryptolog porucznik Georges Painvina. Na początku Painvin zdołał jedynie ustalić, że szyfrowanie opiera się na szachownicy Polibiusza, a do szyfrowania używane są klucze dzienne. Okazało się, że niektóre z wiadomości nadawanych tego samego dnia miała identyczne początki. Jednocześnie wyodrębnił litery służące do szyfrowania (ADFGVX), a następnie sprawdził jak często występują poszczególne pary liter. Najczęstszą występującą kombinacją było DG – wywnioskował stąd, że jest to litera e, która w języku niemieckim występuje najczęściej. Na podstawie dalszej analizy statystycznej udało mu się zrekonstruować całą tablicę. Dzięki temu był w stanie łamać klucze dzienne niemieckich szyfrantów. Od 1 czerwca przechwytywane szyfrogramy zawierały dodatkową literę – V. Oznaczało to, że Niemcy zmienili szyfr – była to nowa wersja, ADFGVX. Ponownie, wykorzystując analizę statystyczną, Painvin odtworzył szachownicę służącą do szyfrowania.</p>
+</section>
+<section id="algorytm-deszyfrujacy-przedstawiajacy-implementacje">
+<h2>2.Algorytm deszyfrujący przedstawiający implementację<a class="headerlink" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje" title="Permalink to this heading">#</a></h2>
+<p>Algorytm wspinaczkowy
+<img alt="" src="../_images/algorytm_lamania_szyfrogramu.jpg" />/
+Każda runda rozpoczynamy  od fazy wstępnej, BestRandomTr(10000), która wybiera najlepszy klucz od 10 000 losowych klawiszy.
+W fazie wstępnej, a do wspinaczki, algorytm wykorzystuje specjalistyczną metodę punktacji ICpairs, który jest oparty na Indeksie Zbieżności (patrz punkt 3. 2. 3 który załączam poniżej</p>
+<p>Przez atak wyłącznie na szyfrogram nie jesteśmy w stanie poznać treści tekstu jawnego, mimo, że zwykle język tekstu jawnego jest znany. Jednym z prostych sposobów oceny potencjalnego odszyfrowania jest zliczenie liczby słów ze słownika, które pojawiają się w potencjalnie odszyfrowanym tekście. Metoda ta ma jednak wadę, ponieważ aby słowo zostało poprawnie odtworzone, konieczne jest dokładne odtworzenie pewnej liczby kolejnych znaków (liter słowa) w tekście. Metoda ta ma bardzo niską odporność na błędy klucza, co oznacza, że każdy klucz z więcej niż kilkoma błędami będzie miał wynik równy zero lub bliski zeru. Z drugiej strony, metoda ta jest niekompletna, ponieważ jeśli odszyfrowany tekst zawiera dużo słów ze słownika, to kandydat z większą liczbą poprawnych elementów w kluczu jest bardziej prawdopodobny niż kandydat z mniejszą liczbą poprawnych elementów w kluczu, który odszyfrowuje tylko niewielką liczbę słów ze słownika.</p>
+<p>Inna funkcja oceny polega na zliczaniu wystąpień każdego pojedynczego znaku (monogramów) i porównaniu tej liczby z częstością monogramów w dużym korpusie języka docelowego. Na przykład w typowym angielskim tekście spodziewa się, że wystąpią częściej litery E lub T niż litery Q i Z. Ta metoda jest bardziej odporna na błędy deszyfrowania, ponieważ nie wymaga dokładnego odtworzenia kolejnych znaków. Z drugiej strony, funkcje oceny oparte na statystykach monogramów są mniej wybiórcze niż te oparte na słowach. Kandydat na klucz, który ma bardzo mało poprawnych elementów, może mimo to odszyfrować szyfrogram w taki sposób, że otrzymany tekst zawiera mieszaninę liter z częstościami podobnymi do tych występujących w języku docelowym, ale w większości są one umiejscowione w niewłaściwych miejscach. Taki klucz uzyska wysoką wartość punktową dla monogramów, nawet jeśli ma dużą liczbę błędów.
+Tekst mówi o metodzie oceny poprawności klucza w kryptoanalizie, która polega na użyciu statystyk n-gramów. N-gramy to sekwencje liter o długości n, takie jak bigramy (2 litery), trigramy (3 litery) czy czwórki (4 litery), a nawet pięciogramy i sześciogramy. Stosując tę metodę, liczy się liczbę wystąpień każdego n-gramu w zaszyfrowanym tekście i porównuje się ją z częstotliwościami n-gramów w danym języku. Im większa długość n-gramu, tym bardziej wybiórcza jest funkcja, ale tym mniej jest odporna na błędy klucza. Metoda oparta na bigramach jest mniej odporna na błędy klucza niż metoda oparta na monogramach, ale bardziej wybiórcza, ponieważ polega na sekwencjach dwóch liter.</p>
+<p>Istnieją dwie główne metody obliczania funkcji oceny opartych na n-gramach. Oznaczamy prawdopodobieństwo wystąpienia i-tego n-gramu w języku jako Gi. Dla hipotetycznego odszyfrowania P oznaczamy częstotliwość względną i-tego n-gramu jako Fi, gdzie Fi = ni / N, ni to liczba wystąpień i-tego n-gramu w P, a N to długość P. Pierwsza metoda polega na obliczeniu sumy kwadratów różnic między rzeczywistą częstotliwością każdego n-gramu a jego oczekiwaną częstotliwością (w języku), jak przedstawiono poniżej:</p>
+<p><img alt="" src="pages/zdjecia/zdj%C4%99cie1.jpg" />/</p>
+<p>Podsumowując, tekst mówi o dwóch podejściach do obliczania funkcji oceny opartych na n-gramach. Pierwsze podejście polega na obliczeniu sumy kwadratów różnic między rzeczywistą częstością występowania każdego n-gramu a jego oczekiwaną częstością w języku. Drugie podejście, proponowane przez Sinkova, polega na używaniu logarytmów wartości prawdopodobieństwa n-gramów. W większości wykorzystywane jest drugie podejście, ponieważ pozwala ono na bardziej efektywne algorytmy niż w przypadku pierwszego podejścia. Sumowanie logarytmów prawdopodobieństw bigramów jest równoważne obliczaniu logarytmu ich iloczynów. Obie metody zostałt zaiplementowane w opensourowwym programi CryptoTool 2.1 który może pobrać każdy użytkownik oraz pobawic się trochę róznymi szyframi klasycznymi.</p>
+<p>Funkcje oceny, które służą do odkrywania tekstu zaszyfrowanego, mogą być oparte na analizie n-gramów lub słów. Takie funkcje zazwyczaj są specyficzne dla danej język, a ich efektywność zależy od charakterystyki języka. Istnieją również inne funkcje oceny, które nie są związane z konkretnym językiem, ale są oparte na wspólnej charakterystyce wszystkich języków, jaką jest redundancja. Redundancja to stopień, w jakim tekst w danym języku można skrócić bez utraty jakiejkolwiek informacji. Redundancja może być wyrażana poprzez częstość występowania liter lub n-gramów w danym języku. Języki naturalne charakteryzują się dużą redundancją, co stanowi podstawę dla skutecznych algorytmów kompresji tekstu. Dla tekstu zaszyfrowanego, dobrze zaprojektowany szyfr powinien być w stanie ukryć wszelkie wzorce statystyczne języka, w tym redundancję. W przypadku klasycznych szyfrów było to trudne, a nawet niemożliwe do osiągnięcia przed rozwojem nowoczesnej kryptografii, z wyjątkiem szyfru jednorazowego.</p>
+<p>Najbardziej znana funkcja oceny, która opiera się na redundancji językowej i nie wymaga specyficznych dla języka statystyk. Jest to Index of Coincidence (IC), wprowadzony przez Williama F. Friedmana  i jest prawdopodobieństwem, że dwa losowo wybrane znaki w tekście będą identyczne. Formalnie, IC jest definiowany jako:</p>
+<p><img alt="" src="pages/zdjecia/zdj%C4%99cie2.jpg" />/</p>
+<p>Ważną charakterystyką IC monogramów jest to, że jest on niezmienny dla substytucji monoalfabetycznych. Oznacza to, że jeśli zastosujemy substytucję, każdy monogram zostanie zastąpiony przez swój odpowiednik, ale suma iloczynów pozostanie taka sama, chociaż w innej kolejności.
+IC nie jest ograniczony do monogramów i może być stosowany również dla bigramów i wyższych n-gramów. W tekście wspominane są funkcje oceny IC bigramów i quadgramów, które zostały wykorzystane do kryptoanalizy szyfru ADFGVX.</p>
+<p>IC jest powszechnie stosowany do kryptoanalizy klasycznych szyfrów, takich jak Enigma opisnay w książce w sekcji patrz sekcja 3.5.1, Purple (patrz sekcja ksiązki 3.5.2), ADFGVX , Hagelina M-209 (sekcja 7.3.2.5) i Chaocipher (sekcja 8.4.2). IC jest uniwersalnym narzędziem do oceny prawdopodobieństwa, że dany tekst jest w określonym języku, co umożliwia atak na monoalfabetyczne szyfry. W przeciwieństwie do n-gramów, IC pozostaje niezmieniony przez monoalfabetyczną substytucję, co czyni go przydatnym nawet wtedy, gdy monoalfabetyczna substytucja jest połączona z inną metodą szyfrowania. Na przykład, IC jest stosowany do poszukiwania klucza transpozycji w szyfrze ADFGVX. Scoring IC dla tekstów zmonoalfabetyzowanych jest niemożliwe ze względu na zmianę n-gramów, które zostały zmienione przez substytucję, co nie pozwala na dopasowanie częstości n-gramów do oczekiwanych częstości w danym języku.</p>
+<p>Główną zaletą IC jako funkcji oceny jest zwiększona odporność na błędy klucza, gdy jest stosowana w klasycznych szyfrach. Większość innych funkcji oceny staje się już nieefektywna powyżej niewielkiej lub umiarkowanej liczby błędów klucza. W przeciwieństwie do tego, IC często jest w stanie odróżnić klucz z relatywnie dużą liczbą błędów od podobnego klucza z mniejszą liczbą błędów. Dlatego IC jest często wybieraną funkcją punktacji we wczesnych etapach poszukiwania klucza, gdy początkowe klucze mają dużą ilość błędów. IC jest mniej skuteczny i często niewystarczająco selektywny w późniejszych etapach poszukiwania klucza, gdy klucz bieżący jest bliski poprawnemu kluczowi i ma bardzo mało błędów. W takim przypadku funkcje punktacji oparte na n-gramach będą bardziej skuteczne w celu osiągnięcia poprawnego klucza, ponieważ są bardziej selektywne.</p>
+<p>Innym ograniczeniem związanym z funkcjami oceny opartymi na IC jest większa prawdopodobieństwo wystąpienia fałszywych wysokich wyników podczas poszukiwania klucza, czyli wysokiego wyniku IC przydzielonego kandydatowi na klucz, który jest głównie niepoprawny. Ten fałszywy, wysoki wynik IC może być nawet wyższy niż IC prawidłowego tekstu jawnego. Dotyczy to również innych funkcji oceny o dobrej odporności na błędy klucza, np. jednoliterowych analiz. Fałszywe wyniki są bardziej prawdopodobne w przypadku krótkich szyfrogramów i mniej prawdopodobne w przypadku dłuższych.</p>
+<p>Lecz w przeciwieństwie do standardowego IC, nie jest obliczany na podstawie monogramów. Zamiast tego jest on obliczany  dla każdego kandydującego klucza transpozycji CandidateTr, stosujemy odwrotność tego klucza transpozycji („anuluj transpozycję”) do kod C, czyli TrInv(CandidateTr,C). Następnie dzielimy wynikową sekwencję symboli ADFGVX na pary (sąsiadujących symboli) i obliczamy ich indeks zbieżności, który jest, ICpairs(). Należy pamiętać, że jeśli klucz kandydata jest równy poprawnemu oryginalnemu kluczowi szyfrowania (CandidateTr = Ktr), każda para w sekwencji po cofnięciu transpozycji reprezentuje pojedynczy oryginalny symbol tekstowy (A-Z, 0–9) po podstawieniu. Jako (monogram) IC zwykłego tekstu P zaszyfrowane z podstawieniem monoalfabetycznym jest zawsze równe IC zwykłego tekstu, w przypadku
+poprawnego klucza transpozycji kandydata (CandidateTr = Ktr)
+Relacja ta jest kluczem do realizacji tego ataku „dziel i rządź”, wykorzystując
+ICpairs, który pozwala na odzyskanie klucza transpozycji z pominięciem podstawienia klucz (Brutal Force). Podczas szyfrowania faza substytucji ADFGVX mapuje symbole zwykłego tekstu na pary symboli ADFGVX. Faza transpozycji dzieli te pary symboli, tworząc więcej przypadkowych kombinacji. Im bardziej algorytm jest w stanie zmienić położenie elementów tych oryginalnych par, używając częściowo poprawnego klucza transpozycji kandydata, tym wyższa wartość ICpairs powinna być. Najwyższa wartość ICpairs jest oczekiwana, gdy klucz transpozycji kandydata jest poprawny. Zaimplementowaliśmy zestaw transformacji używanych przy każdej iteracji i zastosowaliśmy do bieżącego  klucza transpozycji   (NeighborTrKeys(BestTr)).Transformacje te składają się z:</p>
+<ol class="arabic simple">
+<li><p>Proste zamiany dowolnych dwóch elementów w kluczu transpozycji.</p></li>
+<li><p>Swapy dowolnych dwóch segmentów (lub różnych długościach) kolejnych elementów w klucza.</p></li>
+<li><p>Obracanie (cyklicznie) segmentu czyli kolejnych elementów w kluczu (w dowolnej pozycji, i różnej długości).</p></li>
+<li><p>Odwrócenie klucza transpozycji, tak aby ostatni element stał się pierwszym i tak dalej.</p></li>
+<li><p>Zamiana elementów każdej pary w kluczu. W przypadku klucza o nieparzystej długości, pomińmy ostatni element klucza.</p></li>
+</ol>
+<p>Pierwsze trzy typy – pojedyncze swapy i transformacje segmentowe, nie mają charakteru zakłócającego. Co do w przypadku szyfru transpozycji kolumnowej (sekcja 5. 3. 2)(“Krystian tu dopisze”), transformacje segmentów są obowiązkowe, a nasz algorytm nie powiedzie się, jeśli je będziemy usuwać. Dwa ostatnie typy były empirycznie odkryte. Zanim je  wprowadziliśmy wspinaczka często utknęła na literach z wysokim wynikiem, które były podobne do poprawnego klucza, ale z kluczowymi elementami odwróconymi, lub z każdymi dwoma kolejnymi elementami odwróconymi.Algorytm ten sprawdza się dobrze dla kluczy transpozycji o nieparzystej długości. W przypadku kluczy transpozycji o parzystej długości często się nie powiedzie. Aby zilustrować problem, rozważamy następujący klucz transpozycji z 8 elementami (równej długość): Ktr = (4,6,2,3,7,5,1,8), a niektóre klucze zastępcze, Ksub. Szyfrujemy zwykły tekst P, najpierw nakładamy Ksub i otrzymujemy sekwencję symboli ADFGVX, gdzie każda para reprezentuje oryginalny symbol tekstowy. Następnie aplikujemy Ktr i aby uzyskać kod C. Zastosujemy algorytm wspinaczki do tego szyfru adn zakładamy, że znamy długość klucza transpozycji, |K| = 8. Na pewnym etapie wspinaczki, możemy uzyskać następujący klucz kandydata: CandidateTr = (7,5,4,6,1,8,2,3). Zauważmy, że w  kluczu kandydujący, oryginalne pary kluczowych elementów, np. (4, 6) lub (2, 3), zostały poprawnie
+zrekonstruowane, ale względna kolejność par jest błędna. Ze względu na charakter transpozycji kolumnowej, jeśli zastosujemy odwrotność CandidateTr, czyli TrInv(CandidateTr,C), otrzymamy sekwencję symboli ADFGVX, w której dwa elementy każdej z oryginalnych par ADFGVX (po podstawieniu, ale przed transpozycją), są teraz obok siebie. W rezultacie ICpairs(TrInv(CandidateTr,C)) = IC(P), chociaż KandydatTr!(różni się od Ktr) = Ktr. Innymi słowy, mamy fałszywie wysokie ICpairs. W wyniku tego zjawiska nie możemy polegać tylko na ICpairs jako funkcji scoringowej, aby odzyskać klucz transpozycji o równej długości. Gdy długość klucza jest nieparzysta, zjawisko to nie występuje. Aby poradzić sobie z literami transpozycji o równej długości, dostosowaliśmy funkcję scoringową, tak aby łączny poprzedni pomiar (ICpairs) z IC czworokątów (ICquads). Dzielimy na sekwencje TrInv(CandidateTr,C)(otrzymamy po cofnięciu transpozycji) do czworokątów dla Symboli ADFGVX obliczyć ich IC. Zauważ, że jeśli klucz kandydata jest poprawny, to jest CandidateTr = Ktr, każda czwórka symboli ADFGVX (po cofnięciu transpozycji) reprezentuje zatem bigram symboli tekstowych (przed zastąpieniem). Po zmodyfikowaniu algorytmu za pomocą tej ulepszonej metody punktacji, algorytm wykonał również dobrze transpozycję otrzymaliśmy klucze o równej długości.
+Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment. Podzieląc kryptogramy na grupy według kluczy, którymi były zaszyfrowane, uruchomiliśmy algorytm na pierwszych n kryptogramów każdej grupy, zaczynając od n = 10, i redukując n za każym razem, aż algorytm nie odzyska klucza. Zamiast wybierać najdłuższy lub najczystsze kryptogramy z każdej grupy, właśnie wybraliśmy pierwsze n kryptogramów z każdej grupy.Dlatego n kryptogramów wybranych z każdej grupy (klucza) może się różnić pod względem długości lub liczba błędów transkrypcji. W tabeli 6. 1 pokazujemy minimalną liczbę n kryptogramów wymagane przez algorytm, aby umożliwić pełne odzyskanie klucza. Widać, że na 6 klawiszy z 14, tylko 2 kryptogramy o łącznej liczbie 388 do 566 symboli ADFGVX były wystarczające do odzyskania klucze transpozycji o długości od 16 do 23. Najgorszy przypadek był z kluczem długości 18 co wymagało 5 komunikatów o łącznej liczbie 1000 symboli ADFGVX.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./pages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By WCY20KS1S0
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
