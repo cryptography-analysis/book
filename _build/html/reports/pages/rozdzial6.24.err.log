@@ -1,0 +1,186 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from os import *
+from io import *
+from numpy import *
+from itertools import permutations
+# Atal ma szygram o długości klucza dziennego 8,9,10 literowego należy odkomentować oznaczoną linijke w kodzie
+
+# Funkcja rozdzielania wierszy/kolumn na pary liter
+
+def makePairs(permMatrix, numCols, numRows):
+   # Utworzyć pary górnych/bocznych liter i zwrócić pary oddzielone kolumnami?
+
+    pairs = ''
+   #chce co drugi wiersz i parę kolumn
+    evenRows = numRows if numRows % 2 == 0 else numRows - 1
+    evenRows = (evenRows / 2)
+   # parzysteRzędy = liczbaRzędów
+    evenCols = (numCols / 2)
+   # Przejrzyj co drugi wiersz, zbierając pary liter kolumn
+    for j in range(0, evenRows):
+        for i in range(0, evenCols):
+            pairs = pairs + permMatrix[i * 2][j * 2] + permMatrix[(i * 2) + 1][j * 2] + ' '
+
+   # zwróć pojedyncze litery wygenerowane przez substytut()
+    return substitute(pairs);
+
+
+
+# Funkcja przekształcania par liter w pojedyncze litery
+def substitute(pairs):
+    # Zastąp pary liter pojedynczymi literami i usuń spacje
+
+    pairs = pairs.replace('AA', 'A')
+    pairs = pairs.replace('AD', 'B')
+    pairs = pairs.replace('AF', 'C')
+    pairs = pairs.replace('AG', 'D')
+    pairs = pairs.replace('AX', 'E')
+    pairs = pairs.replace('DA', 'F')
+    pairs = pairs.replace('DD', 'G')
+    pairs = pairs.replace('DF', 'H')
+    pairs = pairs.replace('DG', 'I')
+    pairs = pairs.replace('DX', 'K')
+    pairs = pairs.replace('FA', 'L')
+    pairs = pairs.replace('FD', 'M')
+    pairs = pairs.replace('FF', 'N')
+    pairs = pairs.replace('FG', 'O')
+    pairs = pairs.replace('FX', 'P')
+    pairs = pairs.replace('GA', 'Q')
+    pairs = pairs.replace('GD', 'R')
+    pairs = pairs.replace('GF', 'S')
+    pairs = pairs.replace('GG', 'T')
+    pairs = pairs.replace('GX', 'U')
+    pairs = pairs.replace('XA', 'V')
+    pairs = pairs.replace('XD', 'W')
+    pairs = pairs.replace('XF', 'X')
+    pairs = pairs.replace('XG', 'Y')
+    pairs = pairs.replace('XX', 'Z')
+    pairs = pairs.replace(' ', '')
+
+    return pairs;
+
+
+# Funkcja do obliczania IC (Index of Coincidence)
+def indexOfCoincidence(letters):
+    # Oblicz współczynnik koincydencji dla podanych liter
+
+    # IC = suma(Ni(Ni-1))/N(N-1)
+    N = len(letters)
+    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+                'V', 'W', 'X', 'Y', 'Z']
+    sumFreq = 0
+
+    # Dla każdej możliwej litery alfabetu policz liczbę wystąpień w podanym ciągu
+    # i obliczyć Ni(Ni-1), gdzie Ni jest częstotliwością litery i w łańcuchu. Dodać wszystkie wartości Ni(Ni-1) dla i=1:26
+    for letter in alphabet:
+        freq = letters.count(letter)
+        sumFreq = sumFreq + freq * (freq - 1)
+
+    # return the numerator divided by the total number of letters N times N-1
+    return sumFreq / float(N * (N - 1));
+
+
+## Poniżej funkcja main
+
+# wprowadź tekst zaszyfrowany ADFGX
+str = "XDXAGGXGXXGGFAXGXFDAAAAGDAXAXDFGDFFFGDXGFGAXXAADXFGGGGXXADDGXFAFDFXDGFXAGGGGADAAXXGFXDDGXDGFDDAGXDDGXXXGXDDFAFFDXFDGADAFAGADGDDAAGDGDGDGAGAGDDXGGGDGGGAGXFXAADFAADGAAXADDDFGFDFDXDXAAFDADFDGGGXGGGXGXXFGXADFAGDGAFGFADDGXGADGFADDDDDDDAFAFFADGDAAFGFXAAFADADGAFGXFAFDDAADGDFGAXGDAAFAGXXDFDGXDGAGGAADFAADGXGAGXFFXDFGAFGAGAXXFXADGAGAGXDAFFDXFFAXFADXAAGADAAFDADDFXDDGDAGGAFXXFAGFXAFGXFXFAXDDXDAGDXDDAAAGXAXGXFADDFAAXAGADFAGADDAGAGAGADFADDDADGFXDDGXXAGAXFAFDFAFAXFFAADAGAGDXDDXGXDAAADXAGFADDFXDXFGDGGADGAGDXAXDDGGAXDGDDFAXDFAFXDDAXGXGGDXFAFAADGXAADFGDAGFGGXGDGDDXDDGDDFXDGDDAAAFAAGDAAGFFXGXAADAFGGXFAFDADGDADGXGAFADDGFAFDAAAAXGADAFDDXAFAXGDDADGGXAXGFAAAFDADAGGAAGGFGXADGDAFAAGDAGAGXGADFFAAGDAGXFFGXAFDAGGFDGXDADDDDGGFAFAAGAXADGXFXAXXDGFAGGXADFFADAGFAGAGDDAXFGADFAAFFFGDGGDFAGAAAADFAAXGXXFFDGXDFFGGAFXFADGDADFDAGGGADFFAAGGXAGFDXDGAFDDADAFGFDGGFXGAAAXFADDXGGGDGXDFDDGXGDDGFFADDFGAADDXDGGDFDGGDXDFAAFXDFAAGXAAFFAADAXAGXDAXDAXAAGXDGDDGFDDDAFGDAGAFGGXFAGDFFDFAGFAGFGXGGGFDXGADXFGGDADADGFADDGAAGAFXFAGADDFGGXGXDAFXDAFDGAAXAXFGAAGXGFGGAXGDDAFGGDFFDDXFADAAGDFFFAFGDXDXFAXAADAFFDDGAXDGFGDAGXXDGGDXFDGAFXXXDXAGFXDDDAXGGADFFDAAAXGFADDDGXFFXFDAFAFGDADGFGXGDFDDAFDDDFGAXGDAGGXGXGFAAGXGXFXAAFDAGGXFDFGAGGGFFAFFDGFAAGXDDGFFAADGXAXDAFDDFDDGXFDDAGXDXDAFXDFADFDDAAGGFDAFXGAGADXGDGGAFXAGADDGFFXDADXFAADGFDAFADDFGDFFAFDGDGXFDADXGFAGDDDXDGAAAFDAGAADAGXGDDAFFAAGXDDDGGGGDDDFAGGGXXXGXFDAADFDAADAGGGFGFXXXGDGGFGGDFXDAGAFGGXGAFGGFFDXFXGAGAGXAFFAFAAXGFGXAADAFDGAGDGDDAGXDXGGADAADAGXDGGFFDGGGFDXADGAADAXGFFGXFFDDGDFDFFAGXGFDDFGGXADDDDXDGAGADFDAGFFAADXAADADDDDGGFGFXDDFDAFDAFDFGAXFXGDXDXADDGXFXFDAGGAGDDDGDDDAXADAGDXGXGXFDXFGDGXGAGGFDGDAAGGAXGAGXGAFFGADDADDXXFDDGAAGGDFAFDFADGAAFAXXFGGAXDFGFDAAGDDAXDDGFFXDFGGDGAGXGXGFAXAXXAAXADAFGGGGAAXAGGADGAGGADAFDXGDFGDGDFGFGGGGAGDXADXGFDXXDDDAFDAGDAXXDAADAFAAADDGGGDGFAADAGXXGDXGADAFXDFDGGXAFGAGAGAGAGXAXFADFDXDFFAGDGXGXDADXGXXFFDDDAXDXGDGXFDGFAFDDGAFDGXFXFGAAGAFXXXGXFDAXFFFXGAFGDFGGDXADGAGXGXXGFXADGDADFGGXFDFXGGGDGDGDFDDXAFGXXXGDDFGGDFAAAXGDGXGAGXFGDAGFGFXDAAFDDGFFXDGXDFFDGXFFADGGFFXDXDGGGXGDADXAGGDFFGADXGADAFGAGFAGGGGDGDAAXFFGADGFAAAFXGXFAGGAADGGXDAFDFXDDGXGFAXFXFADXGXFXGDGDGAAAAFAGDGGFDAGGGDDFGXFAFDAXAAXXGDDAADFAGXDGFDDXDGGDGAFAFAXXADFXADGXGXFXXAAGDXFDADFGADAADGGAFGGGDXDXAAFDGAADAAAXGDADDDADGAGDFXFDFAADAGFXAADDGDFFFDDFFAGFFXGAXFDDAGAAFGDAGGGADDGDFFDDDAADAGGAAAADDAFGGDFXXXDXFGAAGXGAADDAFXGAGDDAAGGFGGXFDAAAGXDAFAFAGDGFFAADGDFDXDAAGGDAAAAAGGADXDGDGXXFGDGAFXAAGADXFXXDFDFAXAFXGAAGFFFFFDGXFAAXAGAXADADAXDDADGADDDDGGDAGFAXAXFGGAGXXGADGXAAGAGXDXFADGGAFDGAGDGXXGXDGXAXDADDDGDXAAXFGAFDFFXXGDDDGDXAFAGDGDFXGAGAGDDXXF"
+
+
+# Ustaw numCols na żądaną długość klucza
+# liczba kolumn = długość klucza
+numCols = 9
+
+numLetters = len(str)  # całkowita liczba liter w tekście zaszyfrowanym
+numRows = numLetters / numCols # liczba wierszy w każdej kolumnie
+
+# Utwórz listy przechowywania danych !upewnij się, że masz litery numCols w inicjalizacji transpoMatrix
+transpoMatrix = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
+for i in range(numCols):
+    transpoMatrix[i] = str[i * numRows: (i + 1) * numRows]
+
+# uzyskać wszystkie możliwe uporządkowania permutacji
+permOrders = list(permutations(range(0, numCols)))
+
+# dla każdej permutacji wierszy oblicz IC dla par liter jako pojedynczych liter
+# Uwaga: ta wersja makePairs() wykorzystuje tylko połowę wierszy i potencjalnie nie wszystkie kolumny
+candidateOrders = {}
+for order in permOrders:
+    # Posortuj macierz według kolejności permutacji
+    permMatrix = [x for (y, x) in sorted(zip(order, transpoMatrix), key=lambda pair: pair[0])]
+    # Twórz pary liter w zależności od tego, czy długość klucza jest parzysta czy nieparzysta
+    ## jeśli długość klucza jest parzysta, to każda litera w kolumnie będzie tego samego „rodzaju” (góra lub bok)
+    ## abyśmy mogli użyć każdej kolumny w kolejności transpozycji
+    if numCols % 2 == 0:
+        letters = makePairs(permMatrix, numCols, numRows)
+    ## jeśli długość klucza jest nieparzysta, to każda inna litera w kolumnie będzie takiego samaego 'rodzaju'
+    ## więc musimy użyć wszystkich kolumn z wyjątkiem ostatniej
+    else:
+        letters = makePairs(permMatrix[0:(numCols - 1)], numCols - 1, numRows)
+    # Oblicz indeks zbieżności dla pojedynczych liter
+    index = indexOfCoincidence(letters)
+    # Zapisz kolejność permutacji i IC jako element dict
+    candidateOrders[order] = index
+
+# wydrukuj 100 najlepszych kandydatów przez IC (większe jest bardziej angielskie w znaczeniu ma większy współczynik wystąpienia w j.angielskim
+# print(sortowane(candidateOrders. items(), key=lambda x:-x[1])[:100])
+# Zapisz tylko kandydatów, którzy są najbardziej podobni do angielskiego (co jest około 0. 063) współczynik wystąpienia na danej pozycji
+
+topCandidates = {}
+for k, v in candidateOrders.items():
+    if v > 0.06:
+        topCandidates[k] = v
+
+# usuwamy duże zmienne, aby program był mniej uciążliwy zbędne proponowania na dane pozycjie
+del candidateOrders
+del permOrders
+
+# wydrukuj całkowitą liczbę kandydatów w języku angielskim
+numCandidates = len(topCandidates)
+print(numCandidates)
+
+# oblicz częstotliwość każdego numeru kolumny na każdej pozycji w najlepszych zamówieniach kandydujących liter na pozycji
+# odkomentujemy odpowiednią linijkę w zależności od długości klucza dziennego 8,9,10 długości klucza dziennego
+# candFreq = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
+candFreq = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
+# candFreq = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+for k in topCandidates.keys():  # dla każdego najlepszego kandydata,
+    for j in range(numCols): # dla każdej pozycji w transpozycji
+        for i in range(numCols): # dla każdej możliwej kolumny
+            candFreq[i][j] += 1 if k[j] == i else 0
+
+print(candFreq)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[1], line 98[0m
+[1;32m     96[0m transpoMatrix [38;5;241m=[39m [[38;5;124m'[39m[38;5;124ma[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mc[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124md[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124me[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mf[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mg[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mh[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mi[39m[38;5;124m'[39m]
+[1;32m     97[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(numCols):
+[0;32m---> 98[0m     transpoMatrix[i] [38;5;241m=[39m [38;5;28;43mstr[39;49m[43m[[49m[43mi[49m[43m [49m[38;5;241;43m*[39;49m[43m [49m[43mnumRows[49m[43m:[49m[43m [49m[43m([49m[43mi[49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[38;5;241;43m1[39;49m[43m)[49m[43m [49m[38;5;241;43m*[39;49m[43m [49m[43mnumRows[49m[43m][49m
+[1;32m    100[0m [38;5;66;03m# uzyskać wszystkie możliwe uporządkowania permutacji[39;00m
+[1;32m    101[0m permOrders [38;5;241m=[39m [38;5;28mlist[39m(permutations([38;5;28mrange[39m([38;5;241m0[39m, numCols)))
+
+[0;31mTypeError[0m: slice indices must be integers or None or have an __index__ method
+TypeError: slice indices must be integers or None or have an __index__ method
+

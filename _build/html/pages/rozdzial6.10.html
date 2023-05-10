@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Szyfrowanie i deszyfrowanie ADFGVX" href="rozdzial6.20.html" />
-    <link rel="prev" title="Szyfr Kolumnowy (podrozdzial roboczy 5 z 5)" href="rozdzial5.45.html" />
+    <link rel="prev" title="Szyfr łamiący" href="rozdzial5.45.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,18 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial5.30.html">Algorytm wspinaczowy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Szyfr Kolumnowy (podrozdzial roboczy 1 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfr Kolumnowy (podrozdzial roboczy 2 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Szyfr Kolumnowy (podrozdzial roboczy 3 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.44.html">Szyfr Kolumnowy (podrozdzial roboczy 4 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr Kolumnowy (podrozdzial roboczy 5 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Tekst do zaszyfrowania</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfrogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Kryptoanaliza Kolumnowego Szyfru Transpozycyjnego - Algorytm Wspinaczkowy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr łamiący</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">ADFGVX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.20.html">Szyfrowanie i deszyfrowanie ADFGVX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.21.html">Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.21.html">Implementacja szyfru (kod wraz z komentarzami)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.22.html">Plik z tekstem do zaszyfrowania oraz szyfrogram (podrozdzial roboczy)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.23.html">Wyniki działania zaimplementowanego szyfru z szyfrogramem (podrozdzial roboczy)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.30.html">Rozdzial 6.3 oraz 6.4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.31.html">Łamanie / atakowanie szyfru (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.24.html">Implementacja w języku python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.25.html">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.50.html">Odczytywanie wiadomości ADFGVX z Frontu Wschodniego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.60.html">Analiza Historyczna</a></li>
 </ul>
@@ -387,13 +387,13 @@ document.write(`
 <h1>ADFGVX<a class="headerlink" href="#adfgvx" title="Permalink to this heading">#</a></h1>
 <section id="tlo">
 <h2>TŁO<a class="headerlink" href="#tlo" title="Permalink to this heading">#</a></h2>
-<p>Szyfr ADFGVX jest to rozszerzenie szyfru ADFGX. Został zaprojektowany przez niemieckiego oficera wywiadu Fritza Nebela oraz wprowadzony przez armię niemiecką w czerwcu 1918 roku. W swoim czasie był najbardziej zaawansowanym szyfrem polowym. Został on złamany przez francuskiego kryptoanalityka Georgesa Painvina. Dzięki odszyfrowaniu jednej z wiadomości nazywanej później: ,,Le Radiogramme de la Victoire” dostarczył sojusznikom ważne informacje na temat zbliżającej się wielkiej ofensywy niemieckiej. Zaszyfrowany tekst wyglądał tak:</p>
+<p>Szyfr ADFGVX jest to rozszerzenie szyfru ADFGX. Został zaprojektowany przez niemieckiego oficera wywiadu Fritza Nebela oraz wprowadzony przez armię niemiecką w czerwcu 1918 roku. Był najbardziej zaawansowanym szyfrem polowym. Został złamany przez francuskiego kryptoanalityka Georgesa Painvina. Dzięki odszyfrowaniu jednej z wiadomości nazywanej później: ,,Le Radiogramme de la Victoire” dostarczył sojusznikom ważne informacje na temat zbliżającej się wielkiej ofensywy niemieckiej. Zaszyfrowany tekst wyglądał tak:</p>
 <p>FGAXA XAXFF FAFVA AVDFA GAXFX FFAG DXGGX AGXFD XGAGX GAXGX AGXVF VXXAG XDDAX GGAAF DGGAF FXGGX XDFAX GXAXV AGXGG DFAGG GXVAX VFXGV FFGGA XDGAX FDVGG A</p>
 <p>Natomiast po odszyfrowaniu można odczytać tekst w języku niemieckim:</p>
 <p>Munitionierung beschleunigen Punkt Soweit nicht eingesehen auch bei Tag</p>
 <p>Francuskie tłumaczenie wyglądało następująco:</p>
 <p>„Przyśpieszcie dostawę amunicji, róbcie to nawet w ciągu dnia, dopóki nas nie widać”</p>
-<p>Nie wszyscy wiedzą, że szyfr ten był również wykorzystywany na froncie wschodnim, dzięki czemu Berlin mógł się komunikować z placówkami na wschodzie, takimi jak Rumunia, Imperium Tureckie czy też . Ruch ten przechwytywany był przez amerykańskie i brytyjskie siły od lipca do grudnia 1918r. Szyfr ten został częściowo rozszyfrowany przez Jamesa Rievra Childsa, który był oficerem sekcji G.2 A.6 Amerykańskich Sił Ekspedycyjnych. Napisał on kilka raportów ze swojej pracy oraz zachował dzienniki ruchu ADFGVX przechwyconego między wrześniem a grudniem 1918 roku. Zbiór niemieckich kryptogramów ADFGVX zapewnia unikalny wgląd w aliancki wywiad sygnałowy (SIGINT) i zdolności kryptoanalityczne pod koniec I wojny światowej. Niestety większość przechwyconych materiałów nie zachowała się. Jak twierdzi kanadyjski historyk John Ferris podczas I wojny światowej Armia Brytyjska zniszczyła „wszystkie, poza garstką, oryginalne pliki wywiadowcze”. Podobnie było z  aktami armii niemieckiej, które w czasie i po II wojnie światowej zostały bardzo rozlegle zniszczone. Dlatego też współcześni badacze analizujący wiadomości ADFGVX z frontu wschodniego mają nie lada wyzwanie. Choć nie takie jak uwcześni badacze, zwłaszcza że wiele razy informacje przychodziły we fragmentach o różnej wartości, przez co prace wywiadowcze nie raz polegały na układaniu gigantycznej układanki z niezliczonych kawałków. Trzeba też zwrócić uwagę na to, że cała kryptoanaliza i analiza treści często wiązała się z dużą presją czasu i świadomością nieraz ogromnych konsekwencji z tym związanych. Jednak pomimo rozległych badań nad I wojną światową oraz dostępu do dokumentów niedawno odtajnionych nadal współcześni badacze borykają się z wieloma innymi  wyzwaniami. Jednym z nich  na przykład jest fakt, że duża część ruch ADFGVX pochodzi z okresu po podpisaniu przez delegację niemiecką rozejmu z Ententą w Compienge (11.11.1918 r.), który nie obejmuje większość badań historycznych.  Dodatkowo dzienniki przechwytów, które zachował Childs są uporządkowane chronologicznie według czasu ich nadawania lub przechwycenia. Z jednej strony to dobrze, z drugiej jednak nie do końca ponieważ obejmują bardzo rozległy obszar (od morza Bałtyckiego po Imperium Osmańskie włączając w to rejon Morza Czarnego, Gruzję, Rumunię, północny Irak. Dotyczą wielu różnych tematów takich jak: sytuacja polityczna i strategiczna w Niemczech i ich placówkach, sprawy techniczne, logistyczne i komunikacyjne oraz ruchy taktyczne wojsk niemieckich. Każdy z tych tematów wymaga badań odwołań do historycznych, archiwalnych źródeł w celu ustalenia ich kontekstu oraz odtworzenia znaczenia.  Po rozszyfrowaniu depesz kolejnym krokiem współczesnych badaczy jest odtworzenie ich struktury i porządku w celu ich skompletowania. Następnie przystępowali do zrekonstruowania czytelnego tekstu niemieckiego i usunięcia „śmieci”. Kolejnym krokiem była identyfikacja znaków wywoławczych, akronimów, osób oraz podmiotów biorących udział w danej komunikacji. Ostatnim krokiem było powiązanie komunikatów z odpowiadającym kontekstem historycznym.</p>
+<p>Nie wszyscy wiedzą, że szyfr ten był również wykorzystywany na froncie wschodnim, dzięki czemu Berlin mógł się komunikować z placówkami na wschodzie, takimi jak: Rumunia, Imperium Tureckie. Ruch ten przechwytywany był przez amerykańskie i brytyjskie siły od lipca do grudnia 1918r. Szyfr został częściowo rozszyfrowany przez Jamesa Rievra Childsa, który był oficerem sekcji G.2 A.6 Amerykańskich Sił Ekspedycyjnych. Napisał on kilka raportów ze swojej pracy oraz zachował dzienniki ruchu ADFGVX przechwyconego między wrześniem a grudniem 1918 roku. Zbiór niemieckich kryptogramów ADFGVX zapewnia unikalny wgląd w aliancki wywiad sygnałowy (SIGINT) i zdolności kryptoanalityczne pod koniec I wojny światowej. Niestety większość przechwyconych materiałów nie zachowała się. Jak twierdzi kanadyjski historyk John Ferris podczas I wojny światowej Armia Brytyjska zniszczyła „wszystkie, poza garstką, oryginalne pliki wywiadowcze”. Podobnie było z aktami armii niemieckiej, które w czasie i po II wojnie światowej zostały bardzo rozlegle zniszczone. Dlatego też współcześni badacze analizujący wiadomości ADFGVX z frontu wschodniego mają nie lada wyzwanie. Choć nie takie jak ówcześni badacze, zwłaszcza że wiele razy informacje przychodziły we fragmentach o różnej wartości, przez co prace wywiadowcze nie raz polegały na układaniu gigantycznej układanki z niezliczonych kawałków. Trzeba też zwrócić uwagę na to, że cała kryptoanaliza i analiza treści często wiązała się z dużą presją czasu i świadomością nieraz ogromnych konsekwencji z tym związanych. Jednak pomimo rozległych badań nad I wojną światową oraz dostępu do dokumentów niedawno odtajnionych nadal współcześni badacze borykają się z wieloma innymi  wyzwaniami. Jednym z nich na przykład jest fakt, że duża część ruchów ADFGVX pochodzi z okresu po podpisaniu przez delegację niemiecką rozejmu z Ententą w Compienge (11.11.1918 r.), który nie obejmuje większości badań historycznych. Dodatkowo dzienniki przechwytów, które zachował Childs są uporządkowane chronologicznie według czasu ich nadawania lub przechwycenia. Z jednej strony to dobrze, z drugiej jednak nie do końca, ponieważ obejmują bardzo rozległy obszar (od morza Bałtyckiego po Imperium Osmańskie włączając w to rejon Morza Czarnego, Gruzję, Rumunię, północny Irak). Dotyczą wielu różnych tematów takich jak: sytuacja polityczna i strategiczna w Niemczech i ich placówkach, sprawy techniczne, logistyczne i komunikacyjne oraz ruchy taktyczne wojsk niemieckich. Każdy z tych tematów wymaga badań, odwołań do historycznych, archiwalnych źródeł w celu ustalenia ich kontekstu oraz odtworzenia znaczenia.  Po rozszyfrowaniu depesz kolejnym krokiem współczesnych badaczy jest odtworzenie ich struktury i porządku w celu ich skompletowania. Następnie przystępowali do zrekonstruowania czytelnego tekstu niemieckiego i usunięcia „śmieci”. Kolejnym krokiem była identyfikacja znaków wywoławczych, akronimów, osób oraz podmiotów biorących udział w danej komunikacji. Ostatnim krokiem było powiązanie komunikatów z odpowiadającym kontekstem historycznym.</p>
 </section>
 </section>
 
@@ -434,7 +434,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Szyfr Kolumnowy (podrozdzial roboczy 5 z 5)</p>
+        <p class="prev-next-title">Szyfr łamiący</p>
       </div>
     </a>
     <a class="right-next"

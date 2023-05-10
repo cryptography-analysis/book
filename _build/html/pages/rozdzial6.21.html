@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy) &#8212; Psia Kryptografia</title>
+    <title>Implementacja szyfru (kod wraz z komentarzami) &#8212; Psia Kryptografia</title>
   
   
   
@@ -164,18 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial5.30.html">Algorytm wspinaczowy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Szyfr Kolumnowy (podrozdzial roboczy 1 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfr Kolumnowy (podrozdzial roboczy 2 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Szyfr Kolumnowy (podrozdzial roboczy 3 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.44.html">Szyfr Kolumnowy (podrozdzial roboczy 4 z 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr Kolumnowy (podrozdzial roboczy 5 z 5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.41.html">Tekst do zaszyfrowania</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.42.html">Szyfrogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.43.html">Kryptoanaliza Kolumnowego Szyfru Transpozycyjnego - Algorytm Wspinaczkowy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial5.45.html">Szyfr łamiący</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.10.html">ADFGVX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.20.html">Szyfrowanie i deszyfrowanie ADFGVX</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementacja szyfru (kod wraz z komentarzami)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.22.html">Plik z tekstem do zaszyfrowania oraz szyfrogram (podrozdzial roboczy)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.23.html">Wyniki działania zaimplementowanego szyfru z szyfrogramem (podrozdzial roboczy)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.30.html">Rozdzial 6.3 oraz 6.4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.31.html">Łamanie / atakowanie szyfru (podrozdzial roboczy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.24.html">Implementacja w języku python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.25.html">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.50.html">Odczytywanie wiadomości ADFGVX z Frontu Wschodniego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.60.html">Analiza Historyczna</a></li>
 </ul>
@@ -348,7 +348,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -359,11 +361,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)</h1>
+    <h1>Implementacja szyfru (kod wraz z komentarzami)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encode-py">Encode.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-py">Decode.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-py">Driver.py</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -373,8 +385,317 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="implementacja-szyfru-kod-wraz-z-komentarzami-podrozdzial-roboczy">
-<h1>Implementacja szyfru (kod wraz z komentarzami) (podrozdzial roboczy)<a class="headerlink" href="#implementacja-szyfru-kod-wraz-z-komentarzami-podrozdzial-roboczy" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="implementacja-szyfru-kod-wraz-z-komentarzami">
+<h1>Implementacja szyfru (kod wraz z komentarzami)<a class="headerlink" href="#implementacja-szyfru-kod-wraz-z-komentarzami" title="Permalink to this heading">#</a></h1>
+<p>Poniżej zostanie przedstawiona implementacja szyfru ADFGVX wraz z komentarzami. Jest on zaimplementowany w języku python 3 w trzech plikach. Pierwszy plik <a class="reference external" href="http://Encode.py">Encode.py</a> przedstawia sposób szyfrowania, w pliku <a class="reference external" href="http://Decode.py">Decode.py</a> przedstawiony jest sposób dekodowania a trzeci plik <a class="reference external" href="http://Driver.py">Driver.py</a> zawiera main.</p>
+<section id="encode-py">
+<h2><a class="reference external" href="http://Encode.py">Encode.py</a><a class="headerlink" href="#encode-py" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># re - modul do pracy z wyrazeniami regularnymi</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="c1"># shuffle - wykorzystywane do mieszania elementow listy</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="c1"># digits - cyfry od 0 do 9</span>
+<span class="c1"># ascii_uppercase - wielkie litery alfabetu angielskiego </span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">digits</span><span class="p">,</span> <span class="n">ascii_uppercase</span>
+
+
+<span class="k">class</span> <span class="nc">Encode</span> <span class="p">:</span>
+    <span class="c1"># definiowanie konstruktora dla klasy</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="c1"># wejście:</span>
+    <span class="c1"># txt_file_name - podana przez uzytkownika sciezka do pliku w ktorym znajduja sie dane do szachownicy</span>
+    <span class="c1"># wyjscie:</span>
+    <span class="c1"># grid - uzupelniona szachownica</span>
+    <span class="c1"># uzupełnienie szachownicy znakami &#39;A-Z&#39; oraz cyframi &#39;0-9&#39;</span>
+    <span class="k">def</span> <span class="nf">genGrid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">txt_file_name</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj ścieżkę pliku z danymi do uzupełnienia szachownicy Polibiusza: &quot;</span><span class="p">)</span>
+        <span class="c1"># otwarcie pliku do odczytu i zapis do zmeinnej txt_file</span>
+        <span class="n">txt_file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">txt_file_name</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="c1"># odczytanie zawartosci pliku i zapis do zmiennej file_content</span>
+        <span class="n">file_content</span> <span class="o">=</span> <span class="n">txt_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="c1"># podzial zawartosci pliku na ciagi znakow oddzielone przecinkami i zapis do zmiennej chars</span>
+        <span class="n">chars</span> <span class="o">=</span> <span class="n">file_content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="c1"># zamkniecie pliku </span>
+        <span class="n">txt_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wygenerowana szachownica Polibiusza:&quot;</span><span class="p">)</span>
+        <span class="c1"># grid - zmienna globalna, lista skladajaca sie z 6 podlist w kazdej po 6 elementow</span>
+        <span class="k">global</span> <span class="n">grid</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="p">[</span><span class="n">chars</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">chars</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">12</span><span class="p">],</span> <span class="n">chars</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">18</span><span class="p">],</span> <span class="n">chars</span><span class="p">[</span><span class="mi">18</span><span class="p">:</span><span class="mi">24</span><span class="p">],</span> <span class="n">chars</span><span class="p">[</span><span class="mi">24</span><span class="p">:</span><span class="mi">30</span><span class="p">],</span> <span class="n">chars</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">36</span><span class="p">]]</span>
+        <span class="c1"># wypisanie na ekran uzupelnionej szachownicy</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">ascii_uppercase</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;    &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">char</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ascii_uppercase</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">grid</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>  
+            
+    <span class="c1"># znajdowanie danej w szachownicy, zwracanie jej wspolrzednych </span>
+    <span class="c1"># rowNum - numer wiersza</span>
+    <span class="c1"># colNum - numer kolumny</span>
+    <span class="c1"># value - wartosc dla ktorej wyznaczamy wspolrzedne</span>
+    <span class="k">def</span> <span class="nf">findVal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1"># enumerate() - zwraca iterator:</span>
+        <span class="c1"># do rowNum przypisywana jest wartosc wiersza, ktory jest aktualnie przetwarzany</span>
+        <span class="k">for</span> <span class="n">rowNum</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+            <span class="c1"># do colNum przypisywana jest wartosc kolumny, w ktorej przetwarzany aktualnie element znjaduje się w wybranym wierszu</span>
+            <span class="k">for</span> <span class="n">colNum</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">(</span><span class="n">rowNum</span><span class="p">,</span> <span class="n">colNum</span><span class="p">)</span>
+                
+    <span class="c1"># konwersja podanej litery na odpowiadajaca jej litere</span>
+    <span class="k">def</span> <span class="nf">numToChar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ascii_uppercase</span><span class="p">[</span><span class="n">number</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Number out of bounds&#39;</span><span class="p">)</span>            
+    
+    <span class="c1"># Tworzenie pierwszego szyfrogramu</span>
+    <span class="k">def</span> <span class="nf">genCipher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genGrid</span><span class="p">()</span>
+        <span class="k">global</span> <span class="n">firstCipher</span>
+        <span class="n">firstCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">originalMsg</span>
+        <span class="n">originalMsg</span> <span class="o">=</span> <span class="n">msg</span>
+        <span class="c1"># usuwanie znaków, które nie są alfanumeryczne </span>
+        <span class="n">originalMsg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^a-zA-Z0-9]&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">originalMsg</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="c1"># przekształcanie na wielkie litery</span>
+        <span class="n">originalMsg</span> <span class="o">=</span> <span class="n">originalMsg</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">originalMsg</span><span class="p">:</span>
+            <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numToChar</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">findVal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">char</span><span class="p">))</span>
+            <span class="n">firstCipher</span> <span class="o">=</span> <span class="n">firstCipher</span> <span class="o">+</span> <span class="n">row</span> <span class="o">+</span> <span class="n">col</span>
+            
+        <span class="k">return</span> <span class="n">firstCipher</span> 
+    
+    <span class="k">def</span> <span class="nf">genKey</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputKey</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">firstCipher</span>
+        <span class="n">firstCipher</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">firstCipher</span><span class="p">)</span>
+        
+        <span class="k">global</span> <span class="n">cipherKey</span>
+        <span class="n">cipherKey</span> <span class="o">=</span> <span class="n">inputKey</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">POMOCNICZA TABLICA TRANSPOZYCJI&quot;</span><span class="p">)</span>
+        <span class="c1"># keyWordGrid - dwuwymiarowa lista, ktora zostaje uzupelniona po wierszach fragmentami listy fistCipher</span>
+        <span class="c1"># dlugosc wycinkow jest rowna dlugosci klucza szyfrowania; fragmenty te tworza kolumny tabeli szfrujacej</span>
+        <span class="c1"># i sa indeksowane za pomoca liter klucza szyfrujacego</span>
+        <span class="n">keyWordGrid</span> <span class="o">=</span> <span class="p">[</span><span class="n">firstCipher</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">firstCipher</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">))]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">cipherKey</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;    &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">keyWordGrid</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        
+        <span class="c1"># posortowanie listy skladajacej sie z liter klucza szyfrujacego i uzyskanie cipherKeySorted</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">cipherKey</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">cipherKeySorted</span> <span class="o">=</span> <span class="p">([</span><span class="n">cipherKey</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">])</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;POSORTOWANA TABLICA&quot;</span><span class="p">)</span>
+        <span class="c1"># posortowanie keyWordGrid wedlug posortowanej listy cipherKeySorted i uzyskanie keyWordGridSorted</span>
+        <span class="n">keyWordGridSorted</span> <span class="o">=</span> <span class="p">([[</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">keyWordGrid</span><span class="p">])</span>
+        <span class="c1"># wypisanie posortowanej tablicy</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">cipherKeySorted</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;    &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">keyWordGridSorted</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        
+        <span class="n">finalCipherTemp</span> <span class="o">=</span> <span class="p">[[</span><span class="n">row</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">keyWordGridSorted</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">))]</span>
+    
+        <span class="n">finalCipher</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">finalCipherTemp</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+        <span class="c1"># laczenie elementow listy w jeden ciag znakow, ktory ostatecznie jest tekstem zaszyfrowanym</span>
+        <span class="n">finalCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">finalCipher</span><span class="p">)</span>
+    
+        <span class="k">return</span> <span class="n">finalCipher</span>
+    
+    <span class="k">def</span> <span class="nf">getGrid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># zwraca nam grid - szachownice</span>
+        <span class="k">return</span> <span class="n">grid</span>
+    
+    <span class="k">def</span> <span class="nf">getKey</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># zwraca nam cipherKey - klucz szyfrujacy</span>
+        <span class="k">return</span> <span class="n">cipherKey</span>
+    
+    <span class="k">def</span> <span class="nf">getFirstCipher</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#zwraca nam firstCipher - pierwsze zaszyfrowanie</span>
+        <span class="k">return</span> <span class="n">firstCipher</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="decode-py">
+<h2><a class="reference external" href="http://Decode.py">Decode.py</a><a class="headerlink" href="#decode-py" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Decode</span><span class="p">:</span>
+    <span class="c1"># definiowanie konstruktora dla klasy</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+        
+    <span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gridCopy</span><span class="p">,</span> <span class="n">wordCopy</span><span class="p">,</span> <span class="n">finalCipherCopy</span><span class="p">):</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">gridCopy</span>
+        <span class="n">cipherKey</span> <span class="o">=</span> <span class="n">wordCopy</span>
+        <span class="n">finalCipher</span> <span class="o">=</span> <span class="n">finalCipherCopy</span>
+        
+        <span class="c1"># sortowanie indeksow klucza szyfrowania w kolejnosci alfabetycznej </span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">cipherKey</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        
+        <span class="n">gridColumnLen</span><span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">finalCipher</span><span class="p">)</span> <span class="o">//</span> <span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span>
+        
+        <span class="c1"># tworzenie listy, dzielimy tekst na fragmenty kolumny o okreslonej dlugosci </span>
+        <span class="n">gridColumns</span> <span class="o">=</span> <span class="p">[</span><span class="n">finalCipher</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">gridColumnLen</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">finalCipher</span><span class="p">),</span><span class="n">gridColumnLen</span><span class="p">)]</span>
+        
+        <span class="k">global</span> <span class="n">keyWordGridSorted</span>
+        <span class="c1"># keyWordGridSorted - tworzymy przez zamiane wierszy na kolumny</span>
+        <span class="n">keyWordGridSorted</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">gridColumns</span><span class="p">))</span>
+    
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;POSORTOWANA TABLICA TRANSPOZYCJI&quot;</span><span class="p">)</span>
+        <span class="k">global</span> <span class="n">cipherKeySorted</span>
+        <span class="c1"># sortowanie listy zawierajacej klucz</span>
+        <span class="n">cipherKeySorted</span> <span class="o">=</span> <span class="p">([</span><span class="n">cipherKey</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">])</span>
+        <span class="c1"># wypisanie posortowanej listy</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">cipherKeySorted</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;    &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">keyWordGridSorted</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        
+        <span class="c1"># odwrocenie sortowania kolumn siatki</span>
+        <span class="k">global</span> <span class="n">indicesDecoded</span>
+        <span class="n">indicesDecoded</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cipherKeySorted</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        
+        <span class="c1"># wypisz oryginalna tablice transpozycji</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ORYGINALNA TABLICA TRANSPOZYCJI&quot;</span><span class="p">)</span>
+        <span class="k">global</span> <span class="n">keyWordGrid</span>
+        <span class="c1"># ustawianie kolumn w posortowanej tablicy transpozycji tak aby pirwszy wiersz tablicy byl zgodny z kluczem</span>
+        <span class="n">keyWordGrid</span> <span class="o">=</span> <span class="p">([[</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indicesDecoded</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">keyWordGridSorted</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">cipherKey</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;    &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">keyWordGrid</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        
+        <span class="c1"># wypisanie tekstu odczytaego z oryginalnej transpozycji</span>
+        <span class="k">global</span> <span class="n">firstCipher</span>
+        <span class="c1"># zwracanie po kolei elementow z wierszy</span>
+        <span class="n">firstCipher</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">keyWordGrid</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+        <span class="n">firstCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">firstCipher</span><span class="p">)</span>
+     <span class="c1">#   print(&quot;\nTEKST TYMCZASOWY: &quot;,firstCipher)</span>
+        
+        <span class="c1"># tworzenie listy par bedacych wspolrzednymi znakow </span>
+        <span class="n">firstCipherList</span> <span class="o">=</span> <span class="p">[</span><span class="n">firstCipher</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">firstCipher</span><span class="p">),</span> <span class="mi">2</span><span class="p">)]</span>
+                
+        <span class="c1"># zamiana pary znakow reprezentuacych pozycje w siatce Polibiusza na dany znak z tej siatki</span>
+        <span class="n">firstCipherListInt</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">ord</span><span class="p">((</span><span class="n">char</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span> <span class="o">-</span> <span class="mi">97</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">element</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">firstCipherList</span><span class="p">]</span>
+        
+        <span class="k">global</span> <span class="n">originalMsg</span>
+        <span class="n">originalMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">firstCipherListInt</span><span class="p">:</span>
+            <span class="n">originalMsg</span> <span class="o">=</span> <span class="n">originalMsg</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">originalMsg</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="driver-py">
+<h2><a class="reference external" href="http://Driver.py">Driver.py</a><a class="headerlink" href="#driver-py" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Encode</span> <span class="kn">import</span> <span class="n">Encode</span>
+<span class="kn">from</span> <span class="nn">Decode</span> <span class="kn">import</span> <span class="n">Decode</span>
+
+<span class="n">enc</span> <span class="o">=</span> <span class="n">Encode</span><span class="p">()</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="n">Decode</span><span class="p">()</span>
+
+<span class="n">choice</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">originalMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">firstCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">cipherKey</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">cipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">finalCipher</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">decodedMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="k">while</span> <span class="n">choice</span> <span class="o">!=</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wybierz jedna z opcji: &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Podaj wiadomosc do zakodowania &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Podaj klucz do ostatecznego zaszyfrowania wiadomosci &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Podaj zaszyforwana wiadomosc do zdeszyfrowania &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Wyjscie &quot;</span><span class="p">)</span>
+    
+    <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wybór: &quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">):</span>
+        <span class="c1">#while not 0 &lt; len(originalMsg) &lt;= 80:</span>
+        <span class="c1">#    originalMsg = input(&quot;Wpisz wiadomosc do zakodowania &quot;)</span>
+        <span class="n">msg_file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj ścieżkę do pliku z wiadomością do zakodowania: &quot;</span><span class="p">)</span>
+        <span class="c1"># otwarcie do odczytu pliku z tekstem do zaszyfrowania </span>
+        <span class="n">msg_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">msg_file_name</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="c1"># originMsg - wiadomosc z pliku do zaszyfrowania </span>
+        <span class="n">originalMsg</span> <span class="o">=</span> <span class="n">msg_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="c1">#print(&quot;\nzawartość pliku:\n&quot;,originalMsg)</span>
+        <span class="c1"># firstCipher - tekst po pierszej czesci</span>
+        <span class="n">firstCipher</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">genCipher</span><span class="p">(</span><span class="n">originalMsg</span><span class="p">)</span>
+        <span class="c1">#print(&quot;\nPierwszy szyfrogram: &quot; + firstCipher)</span>
+        
+    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Długość pierwszego szyfrogramu:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getFirstCipher</span><span class="p">()))</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getFirstCipher</span><span class="p">())</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">cipherKey</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj klucz transpozycji (Dzielnik długości pierwszego szyfrogramu): &quot;</span><span class="p">)</span>
+        <span class="c1"># cipher - ostateczny zaszyfrowany tekst</span>
+        <span class="n">cipher</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">genKey</span><span class="p">(</span><span class="n">cipherKey</span><span class="p">)</span>
+        <span class="n">ciph_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;szyfrogram.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">ciph_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
+        <span class="n">ciph_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c1">#print(&quot;\nOstateczny szyfrogram: &quot; + cipher)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Szyfrogram zapisany został w pliku szyfrogram.txt&quot;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">):</span>
+        <span class="c1"># finalCipher - zaszyfrowany tekst to zdeszyforwania</span>
+        <span class="n">to_dec_file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Podaj ścieżkę do pliku z szyfrogramem: &quot;</span><span class="p">)</span>
+        <span class="n">to_dec_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_dec_file_name</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> 
+        <span class="n">finalCipher</span> <span class="o">=</span> <span class="n">to_dec_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="c1"># decodeMsg - zdeszyfrowany tekst</span>
+        <span class="n">decodedMsg</span> <span class="o">=</span> <span class="n">dec</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">getGrid</span><span class="p">(),</span> <span class="n">enc</span><span class="o">.</span><span class="n">getKey</span><span class="p">(),</span> <span class="n">finalCipher</span><span class="p">)</span>
+        <span class="c1">#print(&quot;\nWiadomosc jawna: &quot; + decodedMsg)</span>
+        <span class="n">dec_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zdekodowany.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">dec_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">decodedMsg</span><span class="p">)</span>
+        <span class="n">dec_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wiadomość jawna została zapisana w pliku zdekodowany.txt&quot;</span><span class="p">)</span>
+            
+    <span class="k">elif</span> <span class="p">(</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">):</span>
+        <span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">Encode</span> <span class="kn">import</span> <span class="n">Encode</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">Decode</span> <span class="kn">import</span> <span class="n">Decode</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">enc</span> <span class="o">=</span> <span class="n">Encode</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;Encode&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -435,6 +756,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encode-py">Encode.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-py">Decode.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-py">Driver.py</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
