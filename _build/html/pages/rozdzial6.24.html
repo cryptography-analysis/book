@@ -379,7 +379,7 @@ document.write(`
 Jak w rozdziale poprzednim zostało opisane całości algorytmu tak naprawdę opiera się o współczynik IC któy został opisany w rozdziale poprzednim. Algorytm w skrócie na podstawie analizy statystycznej oraz prawdopodobieństu otrzymania sensownych engramów bigramów trigramów oraz sześciogramów. Otrzymane w ten sposób poruwnujemy z występowaniem takich engramów czyli ciągów znaków z cigami znakowymi które występują w danym języku. Po otrzymaniu engramu o największym współczyniku występowania łączymy go w możliwy klucz dzienny w ten sposób otrzymujemy najbardziej prawdopodobny klucz dzienny .</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
@@ -532,20 +532,6 @@ Jak w rozdziale poprzednim zostało opisane całości algorytmu tak naprawdę op
             <span class="n">candFreq</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">k</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span> <span class="k">else</span> <span class="mi">0</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">candFreq</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">98</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="n">transpoMatrix</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numCols</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">98</span>     <span class="n">transpoMatrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">numRows</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">numRows</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="c1"># uzyskać wszystkie możliwe uporządkowania permutacji</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="n">permOrders</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numCols</span><span class="p">)))</span>
-
-<span class="ne">TypeError</span>: slice indices must be integers or None or have an __index__ method
 </pre></div>
 </div>
 </div>
