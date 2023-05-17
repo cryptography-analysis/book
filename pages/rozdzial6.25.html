@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Zastosowanie oraz złamanie szyfru ADFGXV &#8212; Psia Kryptografia</title>
+    <title>Zastosowanie oraz złamanie szyfru ADFGXV &#8212; Psia Kryptografia</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Odczytywanie wiadomości ADFGVX z Frontu Wschodniego" href="rozdzial6.50.html" />
-    <link rel="prev" title="Implementacja w języku python" href="rozdzial6.24.html" />
+    <link rel="prev" title="Implementacja ataku na szyfrogram w języku python" href="rozdzial6.24.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,10 +171,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.10.html">ADFGVX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.20.html">Szyfrowanie i deszyfrowanie ADFGVX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.21.html">Implementacja szyfru (kod wraz z komentarzami)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.22.html">Plik z tekstem do zaszyfrowania oraz szyfrogram (podrozdzial roboczy)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.23.html">Wyniki działania zaimplementowanego szyfru z szyfrogramem (podrozdzial roboczy)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial6.24.html">Implementacja w języku python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.22.html">Plik z tekstem do zaszyfrowania oraz szyfrogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.23.html">Wyniki działania zaimplementowanego szyfru z szyfrogramem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial6.24.html">Implementacja ataku na szyfrogram w języku python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.50.html">Odczytywanie wiadomości ADFGVX z Frontu Wschodniego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial6.60.html">Analiza Historyczna</a></li>
@@ -361,7 +361,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. Zastosowanie oraz złamanie szyfru ADFGXV</h1>
+    <h1>Zastosowanie oraz złamanie szyfru ADFGXV</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,8 +371,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">Algorytm deszyfrujący przedstawiający implementację</a></li>
 </ul>
 
             </nav>
@@ -386,11 +386,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="zastosowanie-oraz-zlamanie-szyfru-adfgxv">
-<h1>1. Zastosowanie oraz złamanie szyfru ADFGXV<a class="headerlink" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv" title="Permalink to this heading">#</a></h1>
+<h1>Zastosowanie oraz złamanie szyfru ADFGXV<a class="headerlink" href="#zastosowanie-oraz-zlamanie-szyfru-adfgxv" title="Permalink to this heading">#</a></h1>
 <p>Szyfr jest oczywiście Niemiecki z okresu I Wojny Światowej złamał go Francuski kryptolog porucznik Georges Painvina. Na początku Painvin zdołał jedynie ustalić, że szyfrowanie opiera się na szachownicy Polibiusza, a do szyfrowania używane są klucze dzienne. Okazało się, że niektóre z wiadomości nadawanych tego samego dnia miała identyczne początki. Jednocześnie wyodrębnił litery służące do szyfrowania (ADFGVX), a następnie sprawdził jak często występują poszczególne pary liter. Najczęstszą występującą kombinacją było DG – wywnioskował stąd, że jest to litera e, która w języku niemieckim występuje najczęściej. Na podstawie dalszej analizy statystycznej udało mu się zrekonstruować całą tablicę. Dzięki temu był w stanie łamać klucze dzienne niemieckich szyfrantów. Od 1 czerwca przechwytywane szyfrogramy zawierały dodatkową literę – V. Oznaczało to, że Niemcy zmienili szyfr – była to nowa wersja, ADFGVX. Ponownie, wykorzystując analizę statystyczną, Painvin odtworzył szachownicę służącą do szyfrowania.</p>
 </section>
 <section id="algorytm-deszyfrujacy-przedstawiajacy-implementacje">
-<h1>2.Algorytm deszyfrujący przedstawiający implementację<a class="headerlink" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje" title="Permalink to this heading">#</a></h1>
+<h1>Algorytm deszyfrujący przedstawiający implementację<a class="headerlink" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje" title="Permalink to this heading">#</a></h1>
 <p>Algorytm wspinaczkowy
 <img alt="" src="../_images/algorytm_lamania_szyfrogramu.jpg" />/
 Każda runda rozpoczynamy  od fazy wstępnej, BestRandomTr(10000), która wybiera najlepszy klucz od 10 000 losowych klawiszy.
@@ -399,11 +399,11 @@ W fazie wstępnej, a do wspinaczki, algorytm wykorzystuje specjalistyczną metod
 <p>Inna funkcja oceny polega na zliczaniu wystąpień każdego pojedynczego znaku (monogramów) i porównaniu tej liczby z częstością monogramów w dużym korpusie języka docelowego. Na przykład w typowym angielskim tekście spodziewa się, że wystąpią częściej litery E lub T niż litery Q i Z. Ta metoda jest bardziej odporna na błędy deszyfrowania, ponieważ nie wymaga dokładnego odtworzenia kolejnych znaków. Z drugiej strony, funkcje oceny oparte na statystykach monogramów są mniej wybiórcze niż te oparte na słowach. Kandydat na klucz, który ma bardzo mało poprawnych elementów, może mimo to odszyfrować szyfrogram w taki sposób, że otrzymany tekst zawiera mieszaninę liter z częstościami podobnymi do tych występujących w języku docelowym, ale w większości są one umiejscowione w niewłaściwych miejscach. Taki klucz uzyska wysoką wartość punktową dla monogramów, nawet jeśli ma dużą liczbę błędów.
 Tekst mówi o metodzie oceny poprawności klucza w kryptoanalizie, która polega na użyciu statystyk n-gramów. N-gramy to sekwencje liter o długości n, takie jak bigramy (2 litery), trigramy (3 litery) czy czwórki (4 litery), a nawet pięciogramy i sześciogramy. Stosując tę metodę, liczy się liczbę wystąpień każdego n-gramu w zaszyfrowanym tekście i porównuje się ją z częstotliwościami n-gramów w danym języku. Im większa długość n-gramu, tym bardziej wybiórcza jest funkcja, ale tym mniej jest odporna na błędy klucza. Metoda oparta na bigramach jest mniej odporna na błędy klucza niż metoda oparta na monogramach, ale bardziej wybiórcza, ponieważ polega na sekwencjach dwóch liter.</p>
 <p>Istnieją dwie główne metody obliczania funkcji oceny opartych na n-gramach. Oznaczamy prawdopodobieństwo wystąpienia i-tego n-gramu w języku jako Gi. Dla hipotetycznego odszyfrowania P oznaczamy częstotliwość względną i-tego n-gramu jako Fi, gdzie Fi = ni / N, ni to liczba wystąpień i-tego n-gramu w P, a N to długość P. Pierwsza metoda polega na obliczeniu sumy kwadratów różnic między rzeczywistą częstotliwością każdego n-gramu a jego oczekiwaną częstotliwością (w języku), jak przedstawiono poniżej:</p>
-<p><img alt="" src="pages/zdjecia/zdj%C4%99cie1.jpg" />/</p>
+<p><img alt="" src="../_images/zdjecie1.jpg" />/</p>
 <p>Podsumowując, tekst mówi o dwóch podejściach do obliczania funkcji oceny opartych na n-gramach. Pierwsze podejście polega na obliczeniu sumy kwadratów różnic między rzeczywistą częstością występowania każdego n-gramu a jego oczekiwaną częstością w języku. Drugie podejście, proponowane przez Sinkova, polega na używaniu logarytmów wartości prawdopodobieństwa n-gramów. W większości wykorzystywane jest drugie podejście, ponieważ pozwala ono na bardziej efektywne algorytmy niż w przypadku pierwszego podejścia. Sumowanie logarytmów prawdopodobieństw bigramów jest równoważne obliczaniu logarytmu ich iloczynów. Obie metody zostałt zaiplementowane w opensourowwym programi CryptoTool 2.1 który może pobrać każdy użytkownik oraz pobawic się trochę róznymi szyframi klasycznymi.</p>
 <p>Funkcje oceny, które służą do odkrywania tekstu zaszyfrowanego, mogą być oparte na analizie n-gramów lub słów. Takie funkcje zazwyczaj są specyficzne dla danej język, a ich efektywność zależy od charakterystyki języka. Istnieją również inne funkcje oceny, które nie są związane z konkretnym językiem, ale są oparte na wspólnej charakterystyce wszystkich języków, jaką jest redundancja. Redundancja to stopień, w jakim tekst w danym języku można skrócić bez utraty jakiejkolwiek informacji. Redundancja może być wyrażana poprzez częstość występowania liter lub n-gramów w danym języku. Języki naturalne charakteryzują się dużą redundancją, co stanowi podstawę dla skutecznych algorytmów kompresji tekstu. Dla tekstu zaszyfrowanego, dobrze zaprojektowany szyfr powinien być w stanie ukryć wszelkie wzorce statystyczne języka, w tym redundancję. W przypadku klasycznych szyfrów było to trudne, a nawet niemożliwe do osiągnięcia przed rozwojem nowoczesnej kryptografii, z wyjątkiem szyfru jednorazowego.</p>
 <p>Najbardziej znana funkcja oceny, która opiera się na redundancji językowej i nie wymaga specyficznych dla języka statystyk. Jest to Index of Coincidence (IC), wprowadzony przez Williama F. Friedmana  i jest prawdopodobieństwem, że dwa losowo wybrane znaki w tekście będą identyczne. Formalnie, IC jest definiowany jako:</p>
-<p><img alt="" src="pages/zdjecia/zdj%C4%99cie2.jpg" />/</p>
+<p><img alt="" src="../_images/zdjecie2.jpg" />/</p>
 <p>Ważną charakterystyką IC monogramów jest to, że jest on niezmienny dla substytucji monoalfabetycznych. Oznacza to, że jeśli zastosujemy substytucję, każdy monogram zostanie zastąpiony przez swój odpowiednik, ale suma iloczynów pozostanie taka sama, chociaż w innej kolejności.
 IC nie jest ograniczony do monogramów i może być stosowany również dla bigramów i wyższych n-gramów. W tekście wspominane są funkcje oceny IC bigramów i quadgramów, które zostały wykorzystane do kryptoanalizy szyfru ADFGVX.</p>
 <p>IC jest powszechnie stosowany do kryptoanalizy klasycznych szyfrów, takich jak Enigma opisnay w książce w sekcji patrz sekcja 3.5.1, Purple (patrz sekcja ksiązki 3.5.2), ADFGVX , Hagelina M-209 (sekcja 7.3.2.5) i Chaocipher (sekcja 8.4.2). IC jest uniwersalnym narzędziem do oceny prawdopodobieństwa, że dany tekst jest w określonym języku, co umożliwia atak na monoalfabetyczne szyfry. W przeciwieństwie do n-gramów, IC pozostaje niezmieniony przez monoalfabetyczną substytucję, co czyni go przydatnym nawet wtedy, gdy monoalfabetyczna substytucja jest połączona z inną metodą szyfrowania. Na przykład, IC jest stosowany do poszukiwania klucza transpozycji w szyfrze ADFGVX. Scoring IC dla tekstów zmonoalfabetyzowanych jest niemożliwe ze względu na zmianę n-gramów, które zostały zmienione przez substytucję, co nie pozwala na dopasowanie częstości n-gramów do oczekiwanych częstości w danym języku.</p>
@@ -462,7 +462,7 @@ Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Implementacja w języku python</p>
+        <p class="prev-next-title">Implementacja ataku na szyfrogram w języku python</p>
       </div>
     </a>
     <a class="right-next"
@@ -492,8 +492,8 @@ Aby ocenić wydajność algorytmu, przeprowadziliśmy następujący eksperyment.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">2.Algorytm deszyfrujący przedstawiający implementację</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Zastosowanie oraz złamanie szyfru ADFGXV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-deszyfrujacy-przedstawiajacy-implementacje">Algorytm deszyfrujący przedstawiający implementację</a></li>
 </ul>
 
   </nav></div>
